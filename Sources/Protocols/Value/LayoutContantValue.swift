@@ -103,7 +103,7 @@ extension UIEdgeInsets: LayoutContantValue {
             return left
             
         case .right, .rightMargin:
-            return right
+            return -right
             
         case .leading, .leadingMargin:
             switch diretion {

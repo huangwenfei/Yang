@@ -61,7 +61,7 @@ extension LayoutFormulaRelator {
         /// - Tag: Judge
         guard
             /// Empty
-            other.isNone ||
+            other.isEmpty ||
             /// Single
             (anchor.isPositionX && other.isPositionX) ||
             (anchor.isPositionY && other.isPositionY) ||
@@ -94,9 +94,9 @@ extension LayoutFormulaRelator {
         other: LayoutItem
     ) -> LayoutConstraint {
         
-        guard LayoutRelationship.isParent(
+        if LayoutRelationship.isParent(
             oneself: constraint.target.target, parentIs: other
-        ) else {
+        ) {
             return relationToParent(using: relate, from: constraint)
         }
         
@@ -135,11 +135,12 @@ extension LayoutFormulaRelator {
         other: Target
     ) -> LayoutConstraint {
         
-        guard LayoutRelationship.isParent(
+        if LayoutRelationship.isParent(
             oneself: constraint.target.target, parentIs: other.target
-        ) else {
+        ) {
             return relationToParent(using: relate, from: constraint)
         }
+        
         return relationToSibliing(
             using: relate, from: constraint, other: other
         )

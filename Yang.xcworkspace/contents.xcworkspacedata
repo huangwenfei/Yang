@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Examples/Yang-Examples/Yang-Examples.xcodeproj">
+      location = "group:Yang.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Yang.xcodeproj">
+      location = "group:Examples/Yang-Examples/Yang-Examples.xcodeproj">
    </FileRef>
 </Workspace>

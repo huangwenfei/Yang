@@ -11,11 +11,11 @@ public protocol LayoutSiblingOtherRelation { }
 
 extension LayoutSiblingOtherRelation where Self: LayoutTargetProtocol {
     
-    public func isSibling(_ rhs: LayoutSiblingMark) -> Bool {
+    internal func isSibling(_ rhs: LayoutSiblingMark) -> Bool {
         LayoutRelationship.isSibling(lhs: target, rhs: rhs)
     }
     
-    public func isSibling(_ rhs: LayoutItem) -> Bool {
+    internal func isSibling(_ rhs: LayoutItem) -> Bool {
         LayoutRelationship.isSibling(lhs: target, rhs: rhs)
     }
     

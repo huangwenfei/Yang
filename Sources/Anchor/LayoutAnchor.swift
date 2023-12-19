@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct LayoutAnchor: OptionSet {
+public struct LayoutAnchor: OptionSet, CustomReflectable {
     
     // MARK: Types
     public typealias Attribute = LayoutTypes.LayoutConstraintTargetAttribute
@@ -21,35 +21,35 @@ public struct LayoutAnchor: OptionSet {
     }
     
     // MARK: Static Properties
-    public static let none: Self = .init(rawValue: 0)
+    public static let none: Self = .init(rawValue: 1 << 0)
     
-    public static let left: Self = .init(rawValue: UInt(1) << 0)
-    public static let right: Self = .init(rawValue: UInt(1) << 1)
-    public static let top: Self = .init(rawValue: UInt(1) << 2)
-    public static let bottom: Self = .init(rawValue: UInt(1) << 3)
+    public static let left: Self = .init(rawValue: UInt(1) << 1)
+    public static let right: Self = .init(rawValue: UInt(1) << 2)
+    public static let top: Self = .init(rawValue: UInt(1) << 3)
+    public static let bottom: Self = .init(rawValue: UInt(1) << 4)
     
-    public static let centerX: Self = .init(rawValue: UInt(1) << 4)
-    public static let centerY: Self = .init(rawValue: UInt(1) << 5)
+    public static let centerX: Self = .init(rawValue: UInt(1) << 5)
+    public static let centerY: Self = .init(rawValue: UInt(1) << 6)
     
-    public static let leading: Self = .init(rawValue: UInt(1) << 6)
-    public static let trailing: Self = .init(rawValue: UInt(1) << 7)
+    public static let leading: Self = .init(rawValue: UInt(1) << 7)
+    public static let trailing: Self = .init(rawValue: UInt(1) << 8)
     
-    public static let width: Self = .init(rawValue: UInt(1) << 8)
-    public static let height: Self = .init(rawValue: UInt(1) << 9)
+    public static let width: Self = .init(rawValue: UInt(1) << 9)
+    public static let height: Self = .init(rawValue: UInt(1) << 10)
     
-    public static let leftMargin: Self = .init(rawValue: UInt(1) << 10)
-    public static let rightMargin: Self = .init(rawValue: UInt(1) << 11)
-    public static let topMargin: Self = .init(rawValue: UInt(1) << 12)
-    public static let bottomMargin: Self = .init(rawValue: UInt(1) << 13)
+    public static let leftMargin: Self = .init(rawValue: UInt(1) << 11)
+    public static let rightMargin: Self = .init(rawValue: UInt(1) << 12)
+    public static let topMargin: Self = .init(rawValue: UInt(1) << 13)
+    public static let bottomMargin: Self = .init(rawValue: UInt(1) << 14)
     
-    public static let centerXMargin: Self = .init(rawValue: UInt(1) << 14)
-    public static let centerYMargin: Self = .init(rawValue: UInt(1) << 15)
+    public static let centerXMargin: Self = .init(rawValue: UInt(1) << 15)
+    public static let centerYMargin: Self = .init(rawValue: UInt(1) << 16)
     
-    public static let leadingMargin: Self = .init(rawValue: UInt(1) << 16)
-    public static let trailingMargin: Self = .init(rawValue: UInt(1) << 17)
+    public static let leadingMargin: Self = .init(rawValue: UInt(1) << 17)
+    public static let trailingMargin: Self = .init(rawValue: UInt(1) << 18)
     
-    public static let firstBaseline: Self = .init(rawValue: UInt(1) << 18)
-    public static let lastBaseline: Self = .init(rawValue: UInt(1) << 19)
+    public static let firstBaseline: Self = .init(rawValue: UInt(1) << 19)
+    public static let lastBaseline: Self = .init(rawValue: UInt(1) << 20)
     
     
     public static let horizontal: Self = [.left, .right]
@@ -84,7 +84,7 @@ public struct LayoutAnchor: OptionSet {
     public static let size: Self = [.width, .height]
     
     // MARK: Special
-    public var isNone: Bool { self == .none || attributes == [] }
+    public var isEmpty: Bool { attributes == [] }
     
     public var isPosition: Bool {
         !self.contains(.width) && !self.contains(.height)
@@ -128,6 +128,7 @@ public struct LayoutAnchor: OptionSet {
     // MARK: Layout Attributes
     public var attributes: [Attribute] {
         var result: [Attribute] = []
+        if contains(.none) { result.append(.notAnAttribute) }
         if contains(.left) { result.append(.left) }
         if contains(.right) { result.append(.right) }
         if contains(.top) { result.append(.top) }
@@ -153,6 +154,7 @@ public struct LayoutAnchor: OptionSet {
     
     public var attributeCompression: Set<String> {
         var result: Set<String> = []
+        if contains(.none) { result.insert("notAnAttribute") }
         if contains(.left) { result.insert("left") }
         if contains(.right) { result.insert("right") }
         if contains(.top) { result.insert("top") }
@@ -174,6 +176,45 @@ public struct LayoutAnchor: OptionSet {
         if contains(.leadingMargin) { result.insert("leading") }
         if contains(.trailingMargin) { result.insert("trailing") }
         return result
+    }
+    
+    // MARK: CustomReflectable
+    internal var name: String {
+        var result: [String] = []
+        if contains(.none) { result.append("notAnAttribute") }
+        if contains(.left) { result.append("left") }
+        if contains(.right) { result.append("right") }
+        if contains(.top) { result.append("top") }
+        if contains(.bottom) { result.append("bottom") }
+        if contains(.centerX) { result.append("centerX") }
+        if contains(.centerY) { result.append("centerY") }
+        if contains(.leading) { result.append("leading") }
+        if contains(.trailing) { result.append("trailing") }
+        if contains(.width) { result.append("width") }
+        if contains(.height) { result.append("height") }
+        if contains(.firstBaseline) { result.append("firstBaseline") }
+        if contains(.lastBaseline) { result.append("lastBaseline") }
+        if contains(.leftMargin) { result.append("leftMargin") }
+        if contains(.rightMargin) { result.append("rightMargin") }
+        if contains(.topMargin) { result.append("topMargin") }
+        if contains(.bottomMargin) { result.append("bottomMargin") }
+        if contains(.centerXMargin) { result.append("centerXMargin") }
+        if contains(.centerYMargin) { result.append("centerYMargin") }
+        if contains(.leadingMargin) { result.append("leadingMargin") }
+        if contains(.trailingMargin) { result.append("trailingMargin") }
+        return result.joined(separator: "-")
+    }
+    
+    internal typealias ReflectableElement = (label: String?, value: Any)
+    internal func elements() -> [ReflectableElement] {
+        [
+            ("rawValue", rawValue),
+            ("name", name)
+        ]
+    }
+    
+    public var customMirror: Mirror {
+        .init(self, children: elements(), displayStyle: .class)
     }
     
 }

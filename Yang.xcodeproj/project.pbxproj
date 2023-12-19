@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		239DF2902B31CE7500960641 /* LayoutUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF28F2B31CE7500960641 /* LayoutUpdatable.swift */; };
+		239DF2982B31D19200960641 /* LayoutConstraint+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF2912B31CEE900960641 /* LayoutConstraint+Update.swift */; };
 		23F391702B3191C5006D7033 /* Yang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F391652B3191C5006D7033 /* Yang.framework */; };
 		23F392AB2B31944C006D7033 /* LayoutParentMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392412B31944C006D7033 /* LayoutParentMark.swift */; };
 		23F392AC2B31944C006D7033 /* LayoutSizeMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392422B31944C006D7033 /* LayoutSizeMark.swift */; };
@@ -103,6 +105,8 @@
 
 /* Begin PBXFileReference section */
 		239DF2832B31958E00960641 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
+		239DF28F2B31CE7500960641 /* LayoutUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUpdatable.swift; sourceTree = "<group>"; };
+		239DF2912B31CEE900960641 /* LayoutConstraint+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutConstraint+Update.swift"; sourceTree = "<group>"; };
 		23F391652B3191C5006D7033 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3916F2B3191C5006D7033 /* YangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3923D2B31944C006D7033 /* YangTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YangTests.swift; sourceTree = "<group>"; };
@@ -213,6 +217,14 @@
 				239DF2832B31958E00960641 /* Package.swift */,
 			);
 			path = Deployment;
+			sourceTree = "<group>";
+		};
+		239DF28E2B31CE3C00960641 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				239DF28F2B31CE7500960641 /* LayoutUpdatable.swift */,
+			);
+			path = Update;
 			sourceTree = "<group>";
 		};
 		23F3915B2B3191C5006D7033 = {
@@ -356,6 +368,7 @@
 		23F392592B31944C006D7033 /* Constraint Builder */ = {
 			isa = PBXGroup;
 			children = (
+				23F392622B31944C006D7033 /* LayoutConstraint.swift */,
 				23F3925A2B31944C006D7033 /* LayoutConstraintItem.swift */,
 				23F3925B2B31944C006D7033 /* LayoutConstraint+Offset.swift */,
 				23F3925C2B31944C006D7033 /* LayoutConstraint+Multiplier.swift */,
@@ -364,7 +377,7 @@
 				23F3925F2B31944C006D7033 /* LayoutConstraint+Priority.swift */,
 				23F392602B31944C006D7033 /* LayoutConstraintTarget.swift */,
 				23F392612B31944C006D7033 /* LayoutConstraint+Active.swift */,
-				23F392622B31944C006D7033 /* LayoutConstraint.swift */,
+				239DF2912B31CEE900960641 /* LayoutConstraint+Update.swift */,
 			);
 			path = "Constraint Builder";
 			sourceTree = "<group>";
@@ -415,11 +428,12 @@
 			isa = PBXGroup;
 			children = (
 				23F392762B31944C006D7033 /* Value */,
-				23F3927F2B31944C006D7033 /* Manager */,
+				23F392982B31944C006D7033 /* Activable */,
+				239DF28E2B31CE3C00960641 /* Update */,
 				23F392832B31944C006D7033 /* Constraint Item */,
 				23F392872B31944C006D7033 /* Formula */,
-				23F392982B31944C006D7033 /* Activable */,
 				23F3929B2B31944C006D7033 /* Anchor */,
+				23F3927F2B31944C006D7033 /* Manager */,
 				23F392A22B31944C006D7033 /* Builder */,
 			);
 			path = Protocols;
@@ -712,7 +726,9 @@
 				23F392CE2B31944C006D7033 /* LayoutAnchor.swift in Sources */,
 				23F392B52B31944C006D7033 /* LayoutLinker+Relation.swift in Sources */,
 				23F392EA2B31944C006D7033 /* LayoutPositionParameter.swift in Sources */,
+				239DF2982B31D19200960641 /* LayoutConstraint+Update.swift in Sources */,
 				23F392EB2B31944C006D7033 /* LayoutContantParameter.swift in Sources */,
+				239DF2902B31CE7500960641 /* LayoutUpdatable.swift in Sources */,
 				23F392B82B31944C006D7033 /* UIView+Layout.swift in Sources */,
 				23F392C12B31944C006D7033 /* LayoutConstraintTarget.swift in Sources */,
 				23F392F82B31944C006D7033 /* LayoutBuilderAnchors.swift in Sources */,

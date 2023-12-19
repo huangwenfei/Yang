@@ -3,20 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		239DF2852B319C4C00960641 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF2842B319C4C00960641 /* BaseViewController.swift */; };
+		239DF2872B319C5900960641 /* BaseBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF2862B319C5900960641 /* BaseBuilderViewController.swift */; };
+		239DF28D2B31C94800960641 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF28C2B31C94800960641 /* ColorView.swift */; };
+		239DF2952B31D13200960641 /* Yang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239DF2942B31D13200960641 /* Yang.framework */; };
+		239DF2962B31D13200960641 /* Yang.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 239DF2942B31D13200960641 /* Yang.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		23F391452B319135006D7033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F391442B319135006D7033 /* AppDelegate.swift */; };
 		23F391472B319135006D7033 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F391462B319135006D7033 /* SceneDelegate.swift */; };
 		23F391492B319135006D7033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F391482B319135006D7033 /* ViewController.swift */; };
 		23F3914C2B319135006D7033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F3914A2B319135006D7033 /* Main.storyboard */; };
 		23F3914E2B319136006D7033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23F3914D2B319136006D7033 /* Assets.xcassets */; };
 		23F391512B319136006D7033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23F3914F2B319136006D7033 /* LaunchScreen.storyboard */; };
-		23F3915A2B319189006D7033 /* Yang in Frameworks */ = {isa = PBXBuildFile; productRef = 23F391592B319189006D7033 /* Yang */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		239DF2972B31D13200960641 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				239DF2962B31D13200960641 /* Yang.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		239DF2842B319C4C00960641 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		239DF2862B319C5900960641 /* BaseBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilderViewController.swift; sourceTree = "<group>"; };
+		239DF28C2B31C94800960641 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		239DF2942B31D13200960641 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F391412B319135006D7033 /* Yang-Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yang-Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F391442B319135006D7033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F391462B319135006D7033 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,18 +54,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23F3915A2B319189006D7033 /* Yang in Frameworks */,
+				239DF2952B31D13200960641 /* Yang.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		239DF2932B31D13200960641 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				239DF2942B31D13200960641 /* Yang.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		23F391382B319135006D7033 = {
 			isa = PBXGroup;
 			children = (
 				23F391432B319135006D7033 /* Yang-Examples */,
 				23F391422B319135006D7033 /* Products */,
+				239DF2932B31D13200960641 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +92,9 @@
 				23F391442B319135006D7033 /* AppDelegate.swift */,
 				23F391462B319135006D7033 /* SceneDelegate.swift */,
 				23F391482B319135006D7033 /* ViewController.swift */,
+				239DF2842B319C4C00960641 /* BaseViewController.swift */,
+				239DF2862B319C5900960641 /* BaseBuilderViewController.swift */,
+				239DF28C2B31C94800960641 /* ColorView.swift */,
 				23F3914A2B319135006D7033 /* Main.storyboard */,
 				23F3914D2B319136006D7033 /* Assets.xcassets */,
 				23F3914F2B319136006D7033 /* LaunchScreen.storyboard */,
@@ -79,6 +113,7 @@
 				23F3913D2B319135006D7033 /* Sources */,
 				23F3913E2B319135006D7033 /* Frameworks */,
 				23F3913F2B319135006D7033 /* Resources */,
+				239DF2972B31D13200960641 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -86,7 +121,6 @@
 			);
 			name = "Yang-Examples";
 			packageProductDependencies = (
-				23F391592B319189006D7033 /* Yang */,
 			);
 			productName = "Yang-Examples";
 			productReference = 23F391412B319135006D7033 /* Yang-Examples.app */;
@@ -117,7 +151,6 @@
 			);
 			mainGroup = 23F391382B319135006D7033;
 			packageReferences = (
-				23F391582B319189006D7033 /* XCLocalSwiftPackageReference "../.." */,
 			);
 			productRefGroup = 23F391422B319135006D7033 /* Products */;
 			projectDirPath = "";
@@ -146,7 +179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				239DF28D2B31C94800960641 /* ColorView.swift in Sources */,
 				23F391492B319135006D7033 /* ViewController.swift in Sources */,
+				239DF2872B319C5900960641 /* BaseBuilderViewController.swift in Sources */,
+				239DF2852B319C4C00960641 /* BaseViewController.swift in Sources */,
 				23F391452B319135006D7033 /* AppDelegate.swift in Sources */,
 				23F391472B319135006D7033 /* SceneDelegate.swift in Sources */,
 			);
@@ -371,20 +407,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCLocalSwiftPackageReference section */
-		23F391582B319189006D7033 /* XCLocalSwiftPackageReference "../.." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../..;
-		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		23F391592B319189006D7033 /* Yang */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Yang;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 23F391392B319135006D7033 /* Project object */;
 }

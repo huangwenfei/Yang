@@ -11,11 +11,11 @@ public protocol LayoutParentAnchorRelation { }
 
 extension LayoutParentAnchorRelation where Self: LayoutTargetProtocol {
     
-    public var haveParent: Bool {
+    internal var haveParent: Bool {
         LayoutRelationship.haveParent(target)
     }
     
-    public func isParent(_ rhs: LayoutItem) -> Bool {
+    internal func isParent(_ rhs: LayoutItem) -> Bool {
         LayoutRelationship.isParent(oneself: target?.parent, parentIs: rhs)
     }
     
