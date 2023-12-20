@@ -17,11 +17,13 @@ public class LayoutTarget: LayoutTargetProtocol, CustomReflectable {
         .init(anchor: anchor, target: target)
     }
     
-    public lazy private(set) var constraint: LayoutConstraint = .init(
+    public lazy private(set) var _constraint: LayoutConstraint = .init(
         target: toAnchor,
         related: .none,
         formula: LayoutFormulaRelator.defaultFormula(using: .equal)
     )
+    
+    public lazy var constraint: LayoutConstraintMaker = .init(constraint: _constraint)
     
     // MARK: Init
     public required init(anchor: LayoutAnchor,  target: LayoutItem?) {

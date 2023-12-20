@@ -7,8 +7,10 @@
 
 import Foundation
 
-public protocol LayoutIdentifierParameter {
+public protocol LayoutIdentifierParameter: LayoutConstraintProtocol {
     
-    func identifier(_ value: LayoutIdentifierValue) -> LayoutConstraint
+    associatedtype IdentifierReturn
+    
+    func identifier(_ value: LayoutIdentifierValue) -> IdentifierReturn
     
 }

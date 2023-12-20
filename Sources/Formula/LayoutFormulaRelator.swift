@@ -22,18 +22,18 @@ extension LayoutFormulaRelator {
     
     internal static func relationToParent(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraint
-    ) -> LayoutConstraint {
+        from constraint: LayoutConstraintMaker
+    ) -> LayoutConstraintMaker {
         
-        guard LayoutRelationship.haveParent(constraint.target.target) else {
+        guard LayoutRelationship.haveParent(constraint.target) else {
             fatalError(
                 String(describing: self) +
                     LayoutError.noParent.localizedDescription
             )
         }
         
-        constraint.related.anchor = constraint.target.anchor
-        constraint.related.target = constraint.target.target?.parent
+        constraint.related.anchor = constraint.anchor
+        constraint.related.target = constraint.target?.parent
         
         constraint.formula.relation = relate
         
@@ -42,16 +42,16 @@ extension LayoutFormulaRelator {
     
     internal static func relationToParent(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraint,
+        from constraint: LayoutConstraintMaker,
         anchor other: LayoutAnchor
-    ) -> LayoutConstraint {
+    ) -> LayoutConstraintMaker {
         
         /// - Tag: From
         let target = constraint.target
-        let anchor = target.anchor
+        let anchor = constraint.anchor
         
         /// - Tag: Have Parent
-        guard LayoutRelationship.haveParent(target.target) else {
+        guard LayoutRelationship.haveParent(target) else {
             fatalError(
                 String(describing: self) +
                     LayoutError.noParent.localizedDescription
@@ -81,7 +81,7 @@ extension LayoutFormulaRelator {
         
         /// - Tag: Build
         constraint.related.anchor = other
-        constraint.related.target = target.target?.parent
+        constraint.related.target = target?.parent
         
         constraint.formula.relation = relate
         
@@ -90,12 +90,12 @@ extension LayoutFormulaRelator {
     
     internal static func relationToSibliingJudge(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraint,
+        from constraint: LayoutConstraintMaker,
         other: LayoutItem
-    ) -> LayoutConstraint {
+    ) -> LayoutConstraintMaker {
         
         if LayoutRelationship.isParent(
-            oneself: constraint.target.target, parentIs: other
+            oneself: constraint.target, parentIs: other
         ) {
             return relationToParent(using: relate, from: constraint)
         }
@@ -107,12 +107,12 @@ extension LayoutFormulaRelator {
     
     internal static func relationToSibliing(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraint,
+        from constraint: LayoutConstraintMaker,
         other: LayoutItem
-    ) -> LayoutConstraint {
+    ) -> LayoutConstraintMaker {
         
         guard LayoutRelationship.isSibling(
-            lhs: constraint.target.target, rhs: other
+            lhs: constraint.target, rhs: other
         ) else {
             fatalError(
                 String(describing: self) +
@@ -121,7 +121,7 @@ extension LayoutFormulaRelator {
             )
         }
         
-        constraint.related.anchor = constraint.target.anchor
+        constraint.related.anchor = constraint.anchor
         constraint.related.target = other
         
         constraint.formula.relation = relate
@@ -131,12 +131,12 @@ extension LayoutFormulaRelator {
     
     internal static func relationToSibliingJudge<Target: LayoutTargetProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraint,
+        from constraint: LayoutConstraintMaker,
         other: Target
-    ) -> LayoutConstraint {
+    ) -> LayoutConstraintMaker {
         
         if LayoutRelationship.isParent(
-            oneself: constraint.target.target, parentIs: other.target
+            oneself: constraint.target, parentIs: other.target
         ) {
             return relationToParent(using: relate, from: constraint)
         }
@@ -148,12 +148,12 @@ extension LayoutFormulaRelator {
     
     internal static func relationToSibliing<Target: LayoutTargetProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraint,
+        from constraint: LayoutConstraintMaker,
         other: Target
-    ) -> LayoutConstraint {
+    ) -> LayoutConstraintMaker {
         
         guard LayoutRelationship.isSibling(
-            lhs: constraint.target.target, rhs: other.target
+            lhs: constraint.target, rhs: other.target
         ) else {
             fatalError(
                 String(describing: self) +
@@ -172,9 +172,9 @@ extension LayoutFormulaRelator {
     
     internal static func relationToOneself(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraint,
+        from constraint: LayoutConstraintMaker,
         constant: LayoutContantValue
-    ) -> LayoutConstraint {
+    ) -> LayoutConstraintMaker {
         
         constraint.related.anchor = .none
         constraint.related.target = nil

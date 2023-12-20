@@ -13,7 +13,7 @@ public struct LayoutFormula: CustomReflectable {
     public var relation: LayoutRelation
     @LayoutMultiplierClamping public var multiplier: LayoutMultiplierValue
     public var constant: LayoutContantValue
-    public var priority: LayoutPriorityValue
+    @LayoutPriorityClamping public var priority: LayoutPriorityValue
     
     // MARK: Init
     public init(

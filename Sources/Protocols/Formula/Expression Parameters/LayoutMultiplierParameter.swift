@@ -7,9 +7,11 @@
 
 import Foundation
 
-public protocol LayoutMultiplierParameter {
+public protocol LayoutMultiplierParameter: LayoutConstraintProtocol {
     
-    func multiplier(by value: LayoutMultiplierValue) -> LayoutConstraint
-    func divided(by value: LayoutMultiplierValue) -> LayoutConstraint
+    associatedtype MultiplierReturn
+    
+    func multiplier(by value: LayoutMultiplierValue) -> MultiplierReturn
+    func divided(by value: LayoutMultiplierValue) -> MultiplierReturn
     
 }

@@ -42,6 +42,11 @@ public struct LayoutPriority: Hashable, RawRepresentable {
         rawValue: UILayoutPriority.defaultLow.rawValue
     )
     
+    // MARK: Range
+    public static let range: ClosedRange<RawValue> = Self.min ... Self.max
+    public static let min: RawValue = 1
+    public static let max: RawValue = normal.rawValue
+    
     // MARK: Related
     public var systemPriority: SystemType {
         .init(rawValue: rawValue)

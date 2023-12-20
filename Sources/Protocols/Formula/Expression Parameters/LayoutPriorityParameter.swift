@@ -7,10 +7,12 @@
 
 import Foundation
 
-public protocol LayoutPriorityParameter {
+public protocol LayoutPriorityParameter: LayoutConstraintProtocol {
     
-    func priority(_ value: LayoutPriorityValue) -> LayoutConstraint
-    func priority(_ value: LayoutPriority) -> LayoutConstraint
-    func priority(_ value: LayoutPriority.SystemType) -> LayoutConstraint
+    associatedtype PriorityReturn
+    
+    func priority(_ value: LayoutPriorityValue) -> PriorityReturn
+    func priority(_ value: LayoutPriority) -> PriorityReturn
+    func priority(_ value: LayoutPriority.SystemType) -> PriorityReturn
     
 }

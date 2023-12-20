@@ -10,21 +10,21 @@ import Foundation
 public protocol LayoutTargetProtocol {
     var anchor: LayoutAnchor { get }
     var target: LayoutItem? { get }
-    var constraint: LayoutConstraint { get }
+    var constraint: LayoutConstraintMaker { get }
     
     init(anchor: LayoutAnchor, target: LayoutItem?)
 }
 
 extension LayoutTargetProtocol {
     
-    internal func relationToParent(using relate: LayoutRelation) -> LayoutConstraint {
+    internal func relationToParent(using relate: LayoutRelation) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToParent(
             using: relate, from: constraint
         )
     }
     
-    internal func relationToParent(using relate: LayoutRelation, anchor other: LayoutAnchor) -> LayoutConstraint {
+    internal func relationToParent(using relate: LayoutRelation, anchor other: LayoutAnchor) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToParent(
             using: relate,
@@ -33,7 +33,7 @@ extension LayoutTargetProtocol {
         )
     }
     
-    internal func relationToSibliingJudge(using relate: LayoutRelation, other: LayoutItem) -> LayoutConstraint {
+    internal func relationToSibliingJudge(using relate: LayoutRelation, other: LayoutItem) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToSibliingJudge(
             using: relate,
@@ -42,14 +42,14 @@ extension LayoutTargetProtocol {
         )
     }
     
-    internal func relationToSibliing(using relate: LayoutRelation, other: LayoutItem) -> LayoutConstraint {
+    internal func relationToSibliing(using relate: LayoutRelation, other: LayoutItem) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToSibliing(
             using: relate, from: constraint, other: other
         )
     }
     
-    internal func relationToSibliingJudge<Target: LayoutTarget>(using relate: LayoutRelation, other: Target) -> LayoutConstraint {
+    internal func relationToSibliingJudge<Target: LayoutTarget>(using relate: LayoutRelation, other: Target) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToSibliingJudge(
             using: relate,
@@ -58,7 +58,7 @@ extension LayoutTargetProtocol {
         )
     }
     
-    internal func relationToSibliing<Target: LayoutTarget>(using relate: LayoutRelation, other: Target) -> LayoutConstraint {
+    internal func relationToSibliing<Target: LayoutTarget>(using relate: LayoutRelation, other: Target) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToSibliing(
             using: relate,
@@ -67,7 +67,7 @@ extension LayoutTargetProtocol {
         )
     }
     
-    internal func relationToOneself(using relate: LayoutRelation, contant: LayoutContantValue) -> LayoutConstraint {
+    internal func relationToOneself(using relate: LayoutRelation, contant: LayoutContantValue) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToOneself(
             using: relate,

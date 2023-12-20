@@ -42,3 +42,29 @@ extension UILayoutPriority: LayoutPriorityValue {
         rawValue
     }
 }
+
+// MARK: Clamping
+@propertyWrapper
+public struct LayoutPriorityClamping {
+    
+    // MARK: Types
+    public typealias Value = LayoutPriorityValue
+    
+    // MARK: Properties
+    private var value: Value = LayoutPriority.min
+    
+    public var wrappedValue: Value {
+        get { value }
+        set { value = clamp(newValue) }
+    }
+    
+    // MARK: Init
+    public init(wrappedValue value: Value) {
+        self.value = clamp(value)
+    }
+    
+    private func clamp(_ value: Value) -> Value {
+        min(max(LayoutPriority.min, value.yangPriorityValue), LayoutPriority.max)
+    }
+    
+}

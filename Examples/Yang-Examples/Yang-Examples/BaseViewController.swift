@@ -59,31 +59,27 @@ class BaseViewController: UIViewController {
                 print("4 second later, greenH isActive: ", greenH.isActive)
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    redTop.deactive()
+                    redTop.offset(140).updateIfCan()
                     self.view.setNeedsUpdateConstraints()
                     print("6 second later, redTop isActive: ", redTop.isActive)
+                    
+                    /// animate
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        redTop.multiplier(by: 3).offset(40).active()
+                        yellowEdge.offsetEdge(30).updateIfCan()
                         self.view.setNeedsUpdateConstraints()
-                        print("8 second later, redTop isActive: ", redTop.isActive)
                         
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                            yellowEdge.offsetEdge(30).updateIfCan()
-                            self.view.setNeedsUpdateConstraints()
-                            
-                            UIViewPropertyAnimator.runningPropertyAnimator(
-                                withDuration: 2,
-                                delay: 0,
-                                animations: {
-                                    self.view.layoutIfNeeded()
-                                },
-                                completion: { position in
-                                    if position == .end {
-                                        green.alpha = 0.6
-                                    }
+                        UIViewPropertyAnimator.runningPropertyAnimator(
+                            withDuration: 2,
+                            delay: 0,
+                            animations: {
+                                self.view.layoutIfNeeded()
+                            },
+                            completion: { position in
+                                if position == .end {
+                                    green.alpha = 0.6
                                 }
-                            )
-                        }
+                            }
+                        )
                     }
                 }
             }

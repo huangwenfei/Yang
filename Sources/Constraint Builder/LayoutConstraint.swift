@@ -7,18 +7,27 @@
 
 import UIKit
 
-public final class LayoutConstraint: LayoutActivable, CustomReflectable {
+public final class LayoutConstraint: 
+    LayoutActivable,
+    LayoutConstraintProtocol,
+    LayoutConstraintActiveImpl
+{
+
+    // MARK: Types
+    public typealias ActiveReturn = Void
     
     // MARK: Properties
     internal var target: LayoutConstraintAnchorTarget
     internal var related: LayoutConstraintAnchorTarget
     internal var formula: LayoutFormula
     /// NSLayoutConstraint.identifier
-    internal var identifier: String?
+    public internal(set) var identifier: String?
     
     public var isActive: Bool = false
     
     public internal(set) var constraints: [LayoutTypes.LayoutConstraintTarget] = []
+    
+    public weak internal(set) var maker: LayoutConstraintMaker!
     
     // MARK: Init
     internal init(
@@ -34,8 +43,7 @@ public final class LayoutConstraint: LayoutActivable, CustomReflectable {
     }
     
     // MARK: CustomReflectable
-    internal typealias ReflectableElement = (label: String?, value: Any)
-    internal func elements() -> [ReflectableElement] {
+    public func elements() -> [ReflectableElement] {
         [
             ("target", target),
             ("related", related),
@@ -45,13 +53,9 @@ public final class LayoutConstraint: LayoutActivable, CustomReflectable {
         ]
     }
     
-    public var customMirror: Mirror {
-        .init(self, children: elements(), displayStyle: .class)
-    }
-    
 }
 
-extension LayoutConstraint {
+extension LayoutConstraint: LayoutConstraintInternalProtocol {
     
     /// LayoutConstraintAnchorTarget -> LayoutConstraintItem List -> NSLayoutConstraint List
     internal func buildConstraints() {
@@ -74,7 +78,7 @@ extension LayoutConstraint {
     
     internal func activeConstraints() {
         constraints.forEach({
-            guard 
+            guard
                 let first = ($0.firstItem as? LayoutItem),
                 let second = ($0.secondItem as? LayoutItem)
             else { return }
@@ -100,15 +104,11 @@ extension LayoutConstraint {
         isActive = false
     }
     
-}
-
-extension LayoutConstraint {
-    
-    internal func cache() {
+    internal func cacheConstraint() {
         target.target?.add(item: self)
     }
     
-    internal func clean() {
+    internal func cleanConstraint() {
         target.target?.remove(item: self)
     }
     

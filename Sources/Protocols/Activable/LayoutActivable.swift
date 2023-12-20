@@ -9,6 +9,6 @@ import Foundation
 
 public protocol LayoutActivable {
     
-    var isActive: Bool { get set }
+    var isActive: Bool { get }
     
 }

@@ -23,72 +23,72 @@ extension LayoutSiblingOtherRelation where Self: LayoutTargetProtocol {
 
 public protocol LayoutSiblingRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutItem) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutItem) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutItem) -> LayoutConstraint
+    func equal(to other: LayoutItem) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutItem) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutItem) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingPositionXRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetPositionX) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetPositionX) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetPositionX) -> LayoutConstraint
+    func equal(to other: LayoutTargetPositionX) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetPositionX) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetPositionX) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingPositionYRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetPositionY) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetPositionY) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetPositionY) -> LayoutConstraint
+    func equal(to other: LayoutTargetPositionY) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetPositionY) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetPositionY) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingPositionHorizontalRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetPositionHorizontal) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetPositionHorizontal) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetPositionHorizontal) -> LayoutConstraint
+    func equal(to other: LayoutTargetPositionHorizontal) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetPositionHorizontal) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetPositionHorizontal) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingPositionVerticalRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetPositionVertical) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetPositionVertical) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetPositionVertical) -> LayoutConstraint
+    func equal(to other: LayoutTargetPositionVertical) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetPositionVertical) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetPositionVertical) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingPositionEdgeRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetPositionEdge) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetPositionEdge) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetPositionEdge) -> LayoutConstraint
+    func equal(to other: LayoutTargetPositionEdge) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetPositionEdge) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetPositionEdge) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingPositionCenterRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetPositionCenter) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetPositionCenter) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetPositionCenter) -> LayoutConstraint
+    func equal(to other: LayoutTargetPositionCenter) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetPositionCenter) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetPositionCenter) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingSizeRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetSize) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetSize) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetSize) -> LayoutConstraint
+    func equal(to other: LayoutTargetSize) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetSize) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetSize) -> LayoutConstraintMaker
     
 }
 
 public protocol LayoutSiblingSizeListRelation: LayoutSiblingOtherRelation {
     
-    func equal(to other: LayoutTargetSizeList) -> LayoutConstraint
-    func greaterOrEqual(to other: LayoutTargetSizeList) -> LayoutConstraint
-    func lessOrEqual(to other: LayoutTargetSizeList) -> LayoutConstraint
+    func equal(to other: LayoutTargetSizeList) -> LayoutConstraintMaker
+    func greaterOrEqual(to other: LayoutTargetSizeList) -> LayoutConstraintMaker
+    func lessOrEqual(to other: LayoutTargetSizeList) -> LayoutConstraintMaker
     
 }

@@ -7,9 +7,11 @@
 
 import Foundation
 
-public protocol LayoutActiveParameter {
+public protocol LayoutActiveParameter: LayoutConstraintProtocol {
     
-    func active() -> LayoutConstraint
-    func deactive() -> LayoutConstraint
+    associatedtype ActiveReturn
+    
+    func active() -> ActiveReturn
+    func deactive() -> ActiveReturn
     
 }

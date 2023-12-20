@@ -7,12 +7,14 @@
 
 import Foundation
 
-public protocol LayoutContantParameter {
+public protocol LayoutContantParameter: LayoutConstraintProtocol {
     
-    func offset(_ value: LayoutContantOffsetValue) -> LayoutConstraint
+    associatedtype ContantReturn
     
-    func offsetPoint(_ value: LayoutContantPointValue) -> LayoutConstraint
-    func offsetSize(_ value: LayoutContantSizeValue) -> LayoutConstraint
-    func offsetEdge(_ value: LayoutContantEdgeValue) -> LayoutConstraint
+    func offset(_ value: LayoutContantOffsetValue) -> ContantReturn
+    
+    func offsetPoint(_ value: LayoutContantPointValue) -> ContantReturn
+    func offsetSize(_ value: LayoutContantSizeValue) -> ContantReturn
+    func offsetEdge(_ value: LayoutContantEdgeValue) -> ContantReturn
     
 }
