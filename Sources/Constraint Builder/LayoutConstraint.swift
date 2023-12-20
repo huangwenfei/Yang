@@ -27,8 +27,6 @@ public final class LayoutConstraint:
     
     public internal(set) var constraints: [LayoutTypes.LayoutConstraintTarget] = []
     
-    public weak internal(set) var maker: LayoutConstraintMaker!
-    
     // MARK: Init
     internal init(
         target: LayoutConstraintAnchorTarget,

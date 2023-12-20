@@ -49,6 +49,8 @@ class BaseViewController: UIViewController {
         
         red.yang.height.equal(to: green).multiplier(by: 2).active()
         
+        redTop.remake.top.equalToParent()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             greenH.deactive()
             self.view.setNeedsUpdateConstraints()

@@ -7,20 +7,30 @@
 
 import Foundation
 
-public protocol LayoutTargetProtocol {
-    var anchor: LayoutAnchor { get }
-    var target: LayoutItem? { get }
-    var constraint: LayoutConstraintMaker { get }
-    
-    init(anchor: LayoutAnchor, target: LayoutItem?)
+public protocol LayoutTargetProtocol: AnyObject {
+    var maker: LayoutConstraintMaker { get }
+    init(maker: LayoutConstraintMaker)
 }
+
+extension LayoutTargetProtocol {
+    public var anchor: LayoutAnchor { 
+        get { maker.constraint.target.anchor }
+        set { maker.constraint.target.anchor = newValue }
+    }
+    
+    public var target: LayoutItem? { 
+        get { maker.constraint.target.target }
+        set { maker.constraint.target.target = newValue }
+    }
+}
+
 
 extension LayoutTargetProtocol {
     
     internal func relationToParent(using relate: LayoutRelation) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToParent(
-            using: relate, from: constraint
+            using: relate, from: maker
         )
     }
     
@@ -28,7 +38,7 @@ extension LayoutTargetProtocol {
         
         LayoutFormulaRelator.relationToParent(
             using: relate,
-            from: constraint,
+            from: maker,
             anchor: other
         )
     }
@@ -37,7 +47,7 @@ extension LayoutTargetProtocol {
         
         LayoutFormulaRelator.relationToSibliingJudge(
             using: relate,
-            from: constraint,
+            from: maker,
             other: other
         )
     }
@@ -45,7 +55,7 @@ extension LayoutTargetProtocol {
     internal func relationToSibliing(using relate: LayoutRelation, other: LayoutItem) -> LayoutConstraintMaker {
         
         LayoutFormulaRelator.relationToSibliing(
-            using: relate, from: constraint, other: other
+            using: relate, from: maker, other: other
         )
     }
     
@@ -53,7 +63,7 @@ extension LayoutTargetProtocol {
         
         LayoutFormulaRelator.relationToSibliingJudge(
             using: relate,
-            from: constraint,
+            from: maker,
             other: other
         )
     }
@@ -62,7 +72,7 @@ extension LayoutTargetProtocol {
         
         LayoutFormulaRelator.relationToSibliing(
             using: relate,
-            from: constraint,
+            from: maker,
             other: other
         )
     }
@@ -71,7 +81,7 @@ extension LayoutTargetProtocol {
         
         LayoutFormulaRelator.relationToOneself(
             using: relate,
-            from: constraint,
+            from: maker,
             constant: contant
         )
     }

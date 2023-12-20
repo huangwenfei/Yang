@@ -47,7 +47,6 @@ public final class LayoutConstraintMaker:
     // MARK: Init
     public init(constraint: LayoutConstraint) {
         self.constraint = constraint
-        self.constraint.maker = self
     }
     
     // MARK: LayoutConstraintProtocol

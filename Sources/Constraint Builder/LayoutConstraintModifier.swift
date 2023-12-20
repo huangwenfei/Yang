@@ -31,6 +31,14 @@ public final class LayoutConstraintModifier:
         constraint.isActive
     }
     
+    public lazy private(set) var remake: LayoutConstraintReMaker = .init(
+        constraint: constraint
+    )
+    
+    public lazy private(set) var remakelink: LayoutConstraintReMaker = .init(
+        constraint: constraint
+    )
+    
     // MARK: Init
     public init(constraint: LayoutConstraint) {
         self.constraint = constraint

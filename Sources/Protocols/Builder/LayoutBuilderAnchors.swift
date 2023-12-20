@@ -15,6 +15,20 @@ public protocol LayoutBuilderAnchors: LayoutAnchors where
 
 extension LayoutBuilderAnchors {
     
+    internal func createMaker(by anchor: LayoutAnchor) -> LayoutConstraintMaker {
+        .init(
+            constraint: .init(
+                target: .init(anchor: anchor, target: layoutItem),
+                related: .none,
+                formula: LayoutFormulaRelator.defaultFormula(using: .equal)
+            )
+        )
+    }
+    
+}
+
+extension LayoutBuilderAnchors {
+    
     /// - Tag: Position
     public var left: PositionX {
         makeStartPointWithAnchor(.left)

@@ -45,9 +45,9 @@ public final class LayoutTargetBuilder:
     
     // MARK: LayoutBuilderAnchors
     public func makeStartPointWithAnchor<Target>(_ anchor: LayoutAnchor) -> Target where Target : LayoutTargetProtocol {
-        let result = Target(anchor: anchor, target: layoutItem)
-        constraints.append(result.constraint.constraint)
-        return result
+        let maker = createMaker(by: anchor)
+        constraints.append(maker.constraint)
+        return .init(maker: maker)
     }
     
 }
