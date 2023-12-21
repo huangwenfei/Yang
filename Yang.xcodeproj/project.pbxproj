@@ -21,6 +21,13 @@
 		234B284A2B32C5E700B93BB6 /* LayoutConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B28492B32C5E700B93BB6 /* LayoutConstraintMaker.swift */; };
 		234B284C2B32C67D00B93BB6 /* LayoutConstraintProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B284B2B32C67D00B93BB6 /* LayoutConstraintProtocol.swift */; };
 		239DF2902B31CE7500960641 /* LayoutUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF28F2B31CE7500960641 /* LayoutUpdatable.swift */; };
+		23BE2D822B3415E600D7FBC2 /* LayoutDiffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D812B3415E600D7FBC2 /* LayoutDiffable.swift */; };
+		23BE2D842B34161200D7FBC2 /* LayoutDiffInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D832B34161200D7FBC2 /* LayoutDiffInfo.swift */; };
+		23BE2D872B341E7400D7FBC2 /* LayoutLinkerPositionAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D862B341E7400D7FBC2 /* LayoutLinkerPositionAnchor.swift */; };
+		23BE2D8C2B341FFB00D7FBC2 /* LayoutLinkerPositionListAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D8B2B341FFB00D7FBC2 /* LayoutLinkerPositionListAnchor.swift */; };
+		23BE2D8E2B3420E700D7FBC2 /* LayoutLinker+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D8D2B3420E700D7FBC2 /* LayoutLinker+Anchor.swift */; };
+		23BE2D902B3420FE00D7FBC2 /* LayoutLinkerSizeAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D8F2B3420FE00D7FBC2 /* LayoutLinkerSizeAnchor.swift */; };
+		23BE2D922B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D912B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift */; };
 		23F391702B3191C5006D7033 /* Yang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F391652B3191C5006D7033 /* Yang.framework */; };
 		23F392AB2B31944C006D7033 /* LayoutParentMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392412B31944C006D7033 /* LayoutParentMark.swift */; };
 		23F392AC2B31944C006D7033 /* LayoutSizeMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392422B31944C006D7033 /* LayoutSizeMark.swift */; };
@@ -125,6 +132,13 @@
 		234B284B2B32C67D00B93BB6 /* LayoutConstraintProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintProtocol.swift; sourceTree = "<group>"; };
 		239DF2832B31958E00960641 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		239DF28F2B31CE7500960641 /* LayoutUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUpdatable.swift; sourceTree = "<group>"; };
+		23BE2D812B3415E600D7FBC2 /* LayoutDiffable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDiffable.swift; sourceTree = "<group>"; };
+		23BE2D832B34161200D7FBC2 /* LayoutDiffInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDiffInfo.swift; sourceTree = "<group>"; };
+		23BE2D862B341E7400D7FBC2 /* LayoutLinkerPositionAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinkerPositionAnchor.swift; sourceTree = "<group>"; };
+		23BE2D8B2B341FFB00D7FBC2 /* LayoutLinkerPositionListAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinkerPositionListAnchor.swift; sourceTree = "<group>"; };
+		23BE2D8D2B3420E700D7FBC2 /* LayoutLinker+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutLinker+Anchor.swift"; sourceTree = "<group>"; };
+		23BE2D8F2B3420FE00D7FBC2 /* LayoutLinkerSizeAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinkerSizeAnchor.swift; sourceTree = "<group>"; };
+		23BE2D912B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinkerSizeListAnchor.swift; sourceTree = "<group>"; };
 		23F391652B3191C5006D7033 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3916F2B3191C5006D7033 /* YangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3923D2B31944C006D7033 /* YangTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YangTests.swift; sourceTree = "<group>"; };
@@ -252,6 +266,45 @@
 			path = Update;
 			sourceTree = "<group>";
 		};
+		23BE2D7F2B3404CF00D7FBC2 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				23BE2D802B340F8000D7FBC2 /* Diff */,
+				2323284C2B3305C100F1E715 /* LayoutConstraintModifier.swift */,
+				232328592B33409000F1E715 /* LayoutConstraintReMaker.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		23BE2D802B340F8000D7FBC2 /* Diff */ = {
+			isa = PBXGroup;
+			children = (
+				23BE2D812B3415E600D7FBC2 /* LayoutDiffable.swift */,
+				23BE2D832B34161200D7FBC2 /* LayoutDiffInfo.swift */,
+			);
+			path = Diff;
+			sourceTree = "<group>";
+		};
+		23BE2D852B341E5200D7FBC2 /* Linker Anchor */ = {
+			isa = PBXGroup;
+			children = (
+				23BE2D862B341E7400D7FBC2 /* LayoutLinkerPositionAnchor.swift */,
+				23BE2D8B2B341FFB00D7FBC2 /* LayoutLinkerPositionListAnchor.swift */,
+				23BE2D8F2B3420FE00D7FBC2 /* LayoutLinkerSizeAnchor.swift */,
+				23BE2D912B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift */,
+			);
+			path = "Linker Anchor";
+			sourceTree = "<group>";
+		};
+		23BE2D882B341F0800D7FBC2 /* Target */ = {
+			isa = PBXGroup;
+			children = (
+				23F392A12B31944C006D7033 /* LayoutTargetProtocol.swift */,
+				232328572B3339D000F1E715 /* LayoutAnchorTargetProtocol.swift */,
+			);
+			path = Target;
+			sourceTree = "<group>";
+		};
 		23F3915B2B3191C5006D7033 = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +349,7 @@
 				23F3924E2B31944C006D7033 /* Linker */,
 				23F392632B31944C006D7033 /* Formula */,
 				23F392592B31944C006D7033 /* Constraint Builder */,
+				23BE2D7F2B3404CF00D7FBC2 /* Modifier */,
 				23F392702B31944C006D7033 /* Builder */,
 				23F392562B31944C006D7033 /* Manager */,
 			);
@@ -359,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				23F3924F2B31944C006D7033 /* LayoutLinker.swift */,
+				23BE2D8D2B3420E700D7FBC2 /* LayoutLinker+Anchor.swift */,
 				23F392502B31944C006D7033 /* LayoutLinker+Relation.swift */,
 			);
 			path = Linker;
@@ -395,8 +450,6 @@
 			children = (
 				23F392622B31944C006D7033 /* LayoutConstraint.swift */,
 				234B28492B32C5E700B93BB6 /* LayoutConstraintMaker.swift */,
-				2323284C2B3305C100F1E715 /* LayoutConstraintModifier.swift */,
-				232328592B33409000F1E715 /* LayoutConstraintReMaker.swift */,
 				23F3925D2B31944C006D7033 /* LayoutConstraintAnchorTarget.swift */,
 				23F392602B31944C006D7033 /* LayoutConstraintTarget.swift */,
 				23F3925A2B31944C006D7033 /* LayoutConstraintItem.swift */,
@@ -448,7 +501,9 @@
 				239DF28E2B31CE3C00960641 /* Update */,
 				23F392832B31944C006D7033 /* Constraint */,
 				23F392872B31944C006D7033 /* Formula */,
+				23BE2D882B341F0800D7FBC2 /* Target */,
 				23F3929B2B31944C006D7033 /* Anchor */,
+				23BE2D852B341E5200D7FBC2 /* Linker Anchor */,
 				23F3927F2B31944C006D7033 /* Manager */,
 				23F392A22B31944C006D7033 /* Builder */,
 			);
@@ -549,12 +604,10 @@
 			isa = PBXGroup;
 			children = (
 				23F3929C2B31944C006D7033 /* LayoutAnchors.swift */,
-				23F3929D2B31944C006D7033 /* LayoutPositionListAnchor.swift */,
-				23F3929E2B31944C006D7033 /* LayoutSizeListAnchor.swift */,
-				23F3929F2B31944C006D7033 /* LayoutSizeAnchor.swift */,
 				23F392A02B31944C006D7033 /* LayoutPositionAnchor.swift */,
-				23F392A12B31944C006D7033 /* LayoutTargetProtocol.swift */,
-				232328572B3339D000F1E715 /* LayoutAnchorTargetProtocol.swift */,
+				23F3929D2B31944C006D7033 /* LayoutPositionListAnchor.swift */,
+				23F3929F2B31944C006D7033 /* LayoutSizeAnchor.swift */,
+				23F3929E2B31944C006D7033 /* LayoutSizeListAnchor.swift */,
 			);
 			path = Anchor;
 			sourceTree = "<group>";
@@ -695,15 +748,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23BE2D872B341E7400D7FBC2 /* LayoutLinkerPositionAnchor.swift in Sources */,
 				23F392C32B31944C006D7033 /* LayoutConstraint.swift in Sources */,
 				23F392EF2B31944C006D7033 /* LayoutActivable.swift in Sources */,
 				232328582B3339D000F1E715 /* LayoutAnchorTargetProtocol.swift in Sources */,
 				23F392F72B31944C006D7033 /* LayoutBuilder.swift in Sources */,
+				23BE2D8C2B341FFB00D7FBC2 /* LayoutLinkerPositionListAnchor.swift in Sources */,
 				23F392D32B31944C006D7033 /* LayoutMultiplierValue.swift in Sources */,
 				23F392B02B31944C006D7033 /* LayoutPriority.swift in Sources */,
 				23F392F22B31944C006D7033 /* LayoutSizeListAnchor.swift in Sources */,
 				23F392AE2B31944C006D7033 /* LayoutSiblingMark.swift in Sources */,
 				23F392D22B31944C006D7033 /* LayoutIdentifierValue.swift in Sources */,
+				23BE2D8E2B3420E700D7FBC2 /* LayoutLinker+Anchor.swift in Sources */,
 				234B284A2B32C5E700B93BB6 /* LayoutConstraintMaker.swift in Sources */,
 				232328472B32DC4400F1E715 /* LayoutConstraintIdentifier.swift in Sources */,
 				23F392F62B31944C006D7033 /* LayoutBuilderBuild.swift in Sources */,
@@ -736,11 +792,14 @@
 				23F392E62B31944C006D7033 /* LayoutParentRelation.swift in Sources */,
 				23F392D62B31944C006D7033 /* LayoutContantValue.swift in Sources */,
 				23F392F32B31944C006D7033 /* LayoutSizeAnchor.swift in Sources */,
+				23BE2D822B3415E600D7FBC2 /* LayoutDiffable.swift in Sources */,
 				23F392CB2B31944C006D7033 /* LayoutFormula+RelatedSize.swift in Sources */,
 				23F392E32B31944C006D7033 /* LayoutSizeRelation.swift in Sources */,
 				23F392DE2B31944C006D7033 /* LayoutItem.swift in Sources */,
+				23BE2D902B3420FE00D7FBC2 /* LayoutLinkerSizeAnchor.swift in Sources */,
 				23F392BB2B31944C006D7033 /* LayoutConstraintItem.swift in Sources */,
 				23F392E02B31944C006D7033 /* LayoutFormulaRelation.swift in Sources */,
+				23BE2D922B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift in Sources */,
 				23F392B12B31944C006D7033 /* LayoutTracer.swift in Sources */,
 				23F392AD2B31944C006D7033 /* LayoutRelationshipMark.swift in Sources */,
 				23F392EE2B31944C006D7033 /* LayoutItemActivable.swift in Sources */,
@@ -768,6 +827,7 @@
 				23F392B92B31944C006D7033 /* LayoutTargetManager.swift in Sources */,
 				2323284D2B3305C100F1E715 /* LayoutConstraintModifier.swift in Sources */,
 				23F392C62B31944C006D7033 /* LayoutFormula+RelatedPosition.swift in Sources */,
+				23BE2D842B34161200D7FBC2 /* LayoutDiffInfo.swift in Sources */,
 				23F392E22B31944C006D7033 /* LayoutPositionRelation.swift in Sources */,
 				23F392AF2B31944C006D7033 /* LayoutRelation.swift in Sources */,
 				232328512B330C8800F1E715 /* LayoutConstraintRemake.swift in Sources */,

@@ -13,17 +13,17 @@ extension LayoutParentRelationImpl where Self: LayoutTargetProtocol {
     
     /// - Tag: Parent
     @discardableResult
-    public func equalToParent() -> LayoutConstraintMaker {
+    public func equalToParent() -> Maker {
         relationToParent(using: .equal)
     }
     
     @discardableResult
-    public func greaterOrEqualToParent() -> LayoutConstraintMaker {
+    public func greaterOrEqualToParent() -> Maker {
         relationToParent(using: .greaterThanOrEqual)
     }
     
     @discardableResult
-    public func lessOrEqualToParent() -> LayoutConstraintMaker {
+    public func lessOrEqualToParent() -> Maker {
         relationToParent(using: .lessThanOrEqual)
     }
     
@@ -36,17 +36,17 @@ extension LayoutSiblingRelationImpl where Self: LayoutTargetProtocol {
     
     /// - Tag: Sibling
     @discardableResult
-    public func equal(to other: LayoutItem) -> LayoutConstraintMaker {
+    public func equal(to other: LayoutItem) -> Maker {
         relationToSibliingJudge(using: .equal, other: other)
     }
     
     @discardableResult
-    public func greaterOrEqual(to other: LayoutItem) -> LayoutConstraintMaker {
+    public func greaterOrEqual(to other: LayoutItem) -> Maker {
         relationToSibliingJudge(using: .greaterThanOrEqual, other: other)
     }
     
     @discardableResult
-    public func lessOrEqual(to other: LayoutItem) -> LayoutConstraintMaker {
+    public func lessOrEqual(to other: LayoutItem) -> Maker {
         relationToSibliingJudge(using: .lessThanOrEqual, other: other)
     }
     

@@ -36,4 +36,9 @@ internal final class LayoutConstraintAnchorTarget: CustomReflectable {
         .init(self, children: elements(), displayStyle: .class)
     }
     
+    // MARK: Copy
+    internal func copy() -> LayoutConstraintAnchorTarget {
+        .init(anchor: anchor, target: target)
+    }
+    
 }

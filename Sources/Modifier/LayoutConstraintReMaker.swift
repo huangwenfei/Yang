@@ -23,11 +23,13 @@ public final class LayoutConstraintReMaker:
     public typealias SizeList = LayoutTargetSizeList
     
     // MARK: Properties
+    internal var oldConstraint: LayoutConstraint
     public var constraint: LayoutConstraint
     
     // MARK: Init
     public init(constraint: LayoutConstraint) {
         self.constraint = constraint
+        self.oldConstraint = constraint.copy()
     }
     
     public var layoutItem: LayoutItem {
@@ -68,11 +70,13 @@ public final class LayoutConstraintReMakerLinker:
     public typealias SizeList = LayoutLinkerSizeList
     
     // MARK: Properties
+    internal var oldConstraint: LayoutConstraint
     public var constraint: LayoutConstraint
     
     // MARK: Init
     public init(constraint: LayoutConstraint) {
         self.constraint = constraint
+        self.oldConstraint = constraint.copy()
     }
     
     public var layoutItem: LayoutItem {

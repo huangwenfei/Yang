@@ -12,6 +12,7 @@
 		239DF28D2B31C94800960641 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF28C2B31C94800960641 /* ColorView.swift */; };
 		239DF2952B31D13200960641 /* Yang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239DF2942B31D13200960641 /* Yang.framework */; };
 		239DF2962B31D13200960641 /* Yang.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 239DF2942B31D13200960641 /* Yang.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		23BE2D942B3422D600D7FBC2 /* BaseUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D932B3422D600D7FBC2 /* BaseUpdateViewController.swift */; };
 		23F391452B319135006D7033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F391442B319135006D7033 /* AppDelegate.swift */; };
 		23F391472B319135006D7033 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F391462B319135006D7033 /* SceneDelegate.swift */; };
 		23F391492B319135006D7033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F391482B319135006D7033 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		239DF2862B319C5900960641 /* BaseBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilderViewController.swift; sourceTree = "<group>"; };
 		239DF28C2B31C94800960641 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		239DF2942B31D13200960641 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		23BE2D932B3422D600D7FBC2 /* BaseUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUpdateViewController.swift; sourceTree = "<group>"; };
 		23F391412B319135006D7033 /* Yang-Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yang-Examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F391442B319135006D7033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23F391462B319135006D7033 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				23F391462B319135006D7033 /* SceneDelegate.swift */,
 				23F391482B319135006D7033 /* ViewController.swift */,
 				239DF2842B319C4C00960641 /* BaseViewController.swift */,
+				23BE2D932B3422D600D7FBC2 /* BaseUpdateViewController.swift */,
 				239DF2862B319C5900960641 /* BaseBuilderViewController.swift */,
 				239DF28C2B31C94800960641 /* ColorView.swift */,
 				23F3914A2B319135006D7033 /* Main.storyboard */,
@@ -183,6 +186,7 @@
 				23F391492B319135006D7033 /* ViewController.swift in Sources */,
 				239DF2872B319C5900960641 /* BaseBuilderViewController.swift in Sources */,
 				239DF2852B319C4C00960641 /* BaseViewController.swift in Sources */,
+				23BE2D942B3422D600D7FBC2 /* BaseUpdateViewController.swift in Sources */,
 				23F391452B319135006D7033 /* AppDelegate.swift in Sources */,
 				23F391472B319135006D7033 /* SceneDelegate.swift in Sources */,
 			);

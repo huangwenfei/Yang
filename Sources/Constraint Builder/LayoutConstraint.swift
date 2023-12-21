@@ -12,7 +12,7 @@ public final class LayoutConstraint:
     LayoutConstraintProtocol,
     LayoutConstraintActiveImpl
 {
-
+    
     // MARK: Types
     public typealias ActiveReturn = Void
     
@@ -40,6 +40,13 @@ public final class LayoutConstraint:
         self.identifier = identifier
     }
     
+    public init(constraint: LayoutConstraint) {
+        self.target = constraint.target
+        self.related = constraint.related
+        self.formula = constraint.formula
+        self.identifier = constraint.identifier
+    }
+    
     // MARK: CustomReflectable
     public func elements() -> [ReflectableElement] {
         [
@@ -49,6 +56,16 @@ public final class LayoutConstraint:
             ("identifier", String(describing: identifier)),
             ("isActive", isActive)
         ]
+    }
+    
+    // MARK: Copy
+    public func copy() -> LayoutConstraint {
+        .init(
+            target: target.copy(),
+            related: related.copy(),
+            formula: formula,
+            identifier: identifier
+        )
     }
     
 }

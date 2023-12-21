@@ -13,33 +13,33 @@ extension LayoutPositionCenterRelationImpl where Self: LayoutTargetProtocol {
     
     /// - Tag: Parent Position List
     @discardableResult
-    public func equalToParent(_ anchor: LayoutAnchorPositionCenter) -> LayoutConstraintMaker {
+    public func equalToParent(_ anchor: LayoutAnchorPositionCenter) -> Maker {
         relationToParent(using: .equal, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionCenter) -> LayoutConstraintMaker {
+    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionCenter) -> Maker {
         relationToParent(using: .greaterThanOrEqual, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionCenter) -> LayoutConstraintMaker {
+    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionCenter) -> Maker {
         relationToParent(using: .lessThanOrEqual, anchor: anchor.anchor)
     }
 
     /// - Tag: Sibling Position List
     @discardableResult
-    public func equal(to other: LayoutTargetPositionCenter) -> LayoutConstraintMaker {
+    public func equal(to other: LayoutTargetPositionCenter) -> Maker {
         relationToSibliingJudge(using: .equal, other: other)
     }
     
     @discardableResult
-    public func greaterOrEqual(to other: LayoutTargetPositionCenter) -> LayoutConstraintMaker {
+    public func greaterOrEqual(to other: LayoutTargetPositionCenter) -> Maker {
         relationToSibliingJudge(using: .greaterThanOrEqual, other: other)
     }
     
     @discardableResult
-    public func lessOrEqual(to other: LayoutTargetPositionCenter) -> LayoutConstraintMaker {
+    public func lessOrEqual(to other: LayoutTargetPositionCenter) -> Maker {
         relationToSibliingJudge(using: .lessThanOrEqual, other: other)
     }
     
@@ -52,33 +52,33 @@ extension LayoutPositionHorizontalRelationImpl where Self: LayoutTargetProtocol 
 
     /// - Tag: Parent Position List
     @discardableResult
-    public func equalToParent(_ anchor: LayoutAnchorPositionHorizontal) -> LayoutConstraintMaker {
+    public func equalToParent(_ anchor: LayoutAnchorPositionHorizontal) -> Maker {
         relationToParent(using: .equal, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionHorizontal) -> LayoutConstraintMaker {
+    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionHorizontal) -> Maker {
         relationToParent(using: .greaterThanOrEqual, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionHorizontal) -> LayoutConstraintMaker {
+    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionHorizontal) -> Maker {
         relationToParent(using: .lessThanOrEqual, anchor: anchor.anchor)
     }
     
     /// - Tag: Sibling Position List
     @discardableResult
-    public func equal(to other: LayoutTargetPositionHorizontal) -> LayoutConstraintMaker {
+    public func equal(to other: LayoutTargetPositionHorizontal) -> Maker {
         relationToSibliingJudge(using: .equal, other: other)
     }
     
     @discardableResult
-    public func greaterOrEqual(to other: LayoutTargetPositionHorizontal) -> LayoutConstraintMaker {
+    public func greaterOrEqual(to other: LayoutTargetPositionHorizontal) -> Maker {
         relationToSibliingJudge(using: .greaterThanOrEqual, other: other)
     }
     
     @discardableResult
-    public func lessOrEqual(to other: LayoutTargetPositionHorizontal) -> LayoutConstraintMaker {
+    public func lessOrEqual(to other: LayoutTargetPositionHorizontal) -> Maker {
         relationToSibliingJudge(using: .lessThanOrEqual, other: other)
     }
     
@@ -91,33 +91,33 @@ extension LayoutPositionVerticalRelationImpl where Self: LayoutTargetProtocol {
     
     /// - Tag: Parent Position List
     @discardableResult
-    public func equalToParent(_ anchor: LayoutAnchorPositionVertical) -> LayoutConstraintMaker {
+    public func equalToParent(_ anchor: LayoutAnchorPositionVertical) -> Maker {
         relationToParent(using: .equal, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionVertical) -> LayoutConstraintMaker {
+    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionVertical) -> Maker {
         relationToParent(using: .greaterThanOrEqual, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionVertical) -> LayoutConstraintMaker {
+    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionVertical) -> Maker {
         relationToParent(using: .lessThanOrEqual, anchor: anchor.anchor)
     }
     
     /// - Tag: Sibling Position List
     @discardableResult
-    public func equal(to other: LayoutTargetPositionVertical) -> LayoutConstraintMaker {
+    public func equal(to other: LayoutTargetPositionVertical) -> Maker {
         relationToSibliingJudge(using: .equal, other: other)
     }
     
     @discardableResult
-    public func greaterOrEqual(to other: LayoutTargetPositionVertical) -> LayoutConstraintMaker {
+    public func greaterOrEqual(to other: LayoutTargetPositionVertical) -> Maker {
         relationToSibliingJudge(using: .greaterThanOrEqual, other: other)
     }
     
     @discardableResult
-    public func lessOrEqual(to other: LayoutTargetPositionVertical) -> LayoutConstraintMaker {
+    public func lessOrEqual(to other: LayoutTargetPositionVertical) -> Maker {
         relationToSibliingJudge(using: .lessThanOrEqual, other: other)
     }
     
@@ -130,33 +130,33 @@ extension LayoutPositionEdgeRelationImpl where Self: LayoutTargetProtocol {
 
     /// - Tag: Parent Position List
     @discardableResult
-    public func equalToParent(_ anchor: LayoutAnchorPositionEdge) -> LayoutConstraintMaker {
+    public func equalToParent(_ anchor: LayoutAnchorPositionEdge) -> Maker {
         relationToParent(using: .equal, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionEdge) -> LayoutConstraintMaker {
+    public func greaterOrEqualToParent(_ anchor: LayoutAnchorPositionEdge) -> Maker {
         relationToParent(using: .greaterThanOrEqual, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionEdge) -> LayoutConstraintMaker {
+    public func lessOrEqualToParent(_ anchor: LayoutAnchorPositionEdge) -> Maker {
         relationToParent(using: .lessThanOrEqual, anchor: anchor.anchor)
     }
 
     /// - Tag: Sibling Position List
     @discardableResult
-    public func equal(to other: LayoutTargetPositionEdge) -> LayoutConstraintMaker {
+    public func equal(to other: LayoutTargetPositionEdge) -> Maker {
         relationToSibliingJudge(using: .equal, other: other)
     }
     
     @discardableResult
-    public func greaterOrEqual(to other: LayoutTargetPositionEdge) -> LayoutConstraintMaker {
+    public func greaterOrEqual(to other: LayoutTargetPositionEdge) -> Maker {
         relationToSibliingJudge(using: .greaterThanOrEqual, other: other)
     }
     
     @discardableResult
-    public func lessOrEqual(to other: LayoutTargetPositionEdge) -> LayoutConstraintMaker {
+    public func lessOrEqual(to other: LayoutTargetPositionEdge) -> Maker {
         relationToSibliingJudge(using: .lessThanOrEqual, other: other)
     }
     

@@ -20,10 +20,10 @@ extension LayoutFormulaRelator {
         )
     }
     
-    internal static func relationToParent(
+    internal static func relationToParent<Maker: LayoutConstraintProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraintMaker
-    ) -> LayoutConstraintMaker {
+        from constraint: Maker
+    ) -> Maker {
         
         guard LayoutRelationship.haveParent(constraint.target) else {
             fatalError(
@@ -40,11 +40,11 @@ extension LayoutFormulaRelator {
         return constraint
     }
     
-    internal static func relationToParent(
+    internal static func relationToParent<Maker: LayoutConstraintProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraintMaker,
+        from constraint: Maker,
         anchor other: LayoutAnchor
-    ) -> LayoutConstraintMaker {
+    ) -> Maker {
         
         /// - Tag: From
         let target = constraint.target
@@ -88,11 +88,11 @@ extension LayoutFormulaRelator {
         return constraint
     }
     
-    internal static func relationToSibliingJudge(
+    internal static func relationToSibliingJudge<Maker: LayoutConstraintProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraintMaker,
+        from constraint: Maker,
         other: LayoutItem
-    ) -> LayoutConstraintMaker {
+    ) -> Maker {
         
         if LayoutRelationship.isParent(
             oneself: constraint.target, parentIs: other
@@ -105,11 +105,11 @@ extension LayoutFormulaRelator {
         )
     }
     
-    internal static func relationToSibliing(
+    internal static func relationToSibliing<Maker: LayoutConstraintProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraintMaker,
+        from constraint: Maker,
         other: LayoutItem
-    ) -> LayoutConstraintMaker {
+    ) -> Maker {
         
         guard LayoutRelationship.isSibling(
             lhs: constraint.target, rhs: other
@@ -129,11 +129,11 @@ extension LayoutFormulaRelator {
         return constraint
     }
     
-    internal static func relationToSibliingJudge<Target: LayoutTargetProtocol>(
+    internal static func relationToSibliingJudge<Target: LayoutTargetProtocol, Maker: LayoutConstraintProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraintMaker,
+        from constraint: Maker,
         other: Target
-    ) -> LayoutConstraintMaker {
+    ) -> Maker {
         
         if LayoutRelationship.isParent(
             oneself: constraint.target, parentIs: other.target
@@ -146,11 +146,11 @@ extension LayoutFormulaRelator {
         )
     }
     
-    internal static func relationToSibliing<Target: LayoutTargetProtocol>(
+    internal static func relationToSibliing<Target: LayoutTargetProtocol, Maker: LayoutConstraintProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraintMaker,
+        from constraint: Maker,
         other: Target
-    ) -> LayoutConstraintMaker {
+    ) -> Maker {
         
         guard LayoutRelationship.isSibling(
             lhs: constraint.target, rhs: other.target
@@ -170,11 +170,11 @@ extension LayoutFormulaRelator {
         return constraint
     }
     
-    internal static func relationToOneself(
+    internal static func relationToOneself<Maker: LayoutConstraintProtocol>(
         using relate: LayoutRelation,
-        from constraint: LayoutConstraintMaker,
+        from constraint: Maker,
         constant: LayoutContantValue
-    ) -> LayoutConstraintMaker {
+    ) -> Maker {
         
         constraint.related.anchor = .none
         constraint.related.target = nil

@@ -26,24 +26,6 @@ public final class LayoutConstraintMaker:
     // MARK: Properties
     public internal(set) var constraint: LayoutConstraint
     
-    internal var anchor: LayoutAnchor { constraint.target.anchor }
-    internal var target: LayoutItem? { constraint.target.target }
-    
-    internal var related: LayoutConstraintAnchorTarget {
-        get { constraint.related }
-        set { constraint.related = newValue }
-    }
-    
-    internal var formula: LayoutFormula {
-        get { constraint.formula }
-        set { constraint.formula = newValue }
-    }
-    
-    internal var constraints: [LayoutTypes.LayoutConstraintTarget] {
-        get { constraint.constraints }
-        set { constraint.constraints = newValue }
-    }
-    
     // MARK: Init
     public init(constraint: LayoutConstraint) {
         self.constraint = constraint

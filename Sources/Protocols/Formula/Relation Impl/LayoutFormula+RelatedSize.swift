@@ -13,49 +13,49 @@ extension LayoutSizeRelationImpl where Self: LayoutTargetProtocol {
     
     /// - Tag: Parent Size
     @discardableResult
-    public func equalToParent(_ anchor: LayoutAnchorSize) -> LayoutConstraintMaker {
+    public func equalToParent(_ anchor: LayoutAnchorSize) -> Maker {
         relationToParent(using: .equal, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func greaterOrEqualToParent(_ anchor: LayoutAnchorSize) -> LayoutConstraintMaker {
+    public func greaterOrEqualToParent(_ anchor: LayoutAnchorSize) -> Maker {
         relationToParent(using: .greaterThanOrEqual, anchor: anchor.anchor)
     }
     
     @discardableResult
-    public func lessOrEqualToParent(_ anchor: LayoutAnchorSize) -> LayoutConstraintMaker {
+    public func lessOrEqualToParent(_ anchor: LayoutAnchorSize) -> Maker {
         relationToParent(using: .lessThanOrEqual, anchor: anchor.anchor)
     }
     
     /// - Tag: Sibling Size
     @discardableResult
-    public func equal(to other: LayoutTargetSize) -> LayoutConstraintMaker {
+    public func equal(to other: LayoutTargetSize) -> Maker {
         relationToSibliingJudge(using: .equal, other: other)
     }
     
     @discardableResult
-    public func greaterOrEqual(to other: LayoutTargetSize) -> LayoutConstraintMaker {
+    public func greaterOrEqual(to other: LayoutTargetSize) -> Maker {
         relationToSibliingJudge(using: .greaterThanOrEqual, other: other)
     }
     
     @discardableResult
-    public func lessOrEqual(to other: LayoutTargetSize) -> LayoutConstraintMaker {
+    public func lessOrEqual(to other: LayoutTargetSize) -> Maker {
         relationToSibliingJudge(using: .lessThanOrEqual, other: other)
     }
     
     /// - Tag: Sibling Size Contant
     @discardableResult
-    public func equal(to contant: LayoutContantValue) -> LayoutConstraintMaker {
+    public func equal(to contant: LayoutContantValue) -> Maker {
         relationToOneself(using: .equal, contant: contant)
     }
     
     @discardableResult
-    public func greaterOrEqual(to contant: LayoutContantValue) -> LayoutConstraintMaker {
+    public func greaterOrEqual(to contant: LayoutContantValue) -> Maker {
         relationToOneself(using: .greaterThanOrEqual, contant: contant)
     }
     
     @discardableResult
-    public func lessOrEqual(to contant: LayoutContantValue) -> LayoutConstraintMaker {
+    public func lessOrEqual(to contant: LayoutContantValue) -> Maker {
         relationToOneself(using: .lessThanOrEqual, contant: contant)
     }
     

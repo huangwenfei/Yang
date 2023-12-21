@@ -7,17 +7,17 @@
 
 import UIKit
 
-public class LayoutTarget: LayoutTargetProtocol, CustomReflectable {
+public class LayoutTargetType<Maker: LayoutConstraintProtocol>: LayoutTargetProtocol, CustomReflectable {
     
     // MARK: Properties
     internal var toAnchor: LayoutConstraintAnchorTarget {
         .init(anchor: anchor, target: target)
     }
     
-    public private(set) var maker: LayoutConstraintMaker
+    public private(set) var maker: Maker
     
     // MARK: Init
-    public required init(maker: LayoutConstraintMaker) {
+    public required init(maker: Maker) {
         self.maker = maker
     }
     
@@ -35,3 +35,5 @@ public class LayoutTarget: LayoutTargetProtocol, CustomReflectable {
     }
     
 }
+
+public class LayoutTarget: LayoutTargetType<LayoutConstraintMaker> { }
