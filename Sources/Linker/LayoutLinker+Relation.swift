@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: Parent & Sibling
-extension LayoutLinker: LayoutParentRelationImpl { }
-extension LayoutLinker: LayoutSiblingRelationImpl { }
+extension LayoutLinkerType: LayoutParentRelationImpl { }
+extension LayoutLinkerType: LayoutSiblingRelationImpl { }
 
 // MARK: Position
 extension LayoutLinkerPositionX: LayoutPositionXRelationImpl { }

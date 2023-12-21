@@ -14,14 +14,16 @@ public final class LayoutTargetBuilder:
 {
 
     // MARK: Types
-    public typealias PositionX = LayoutTargetPositionX
-    public typealias PositionY = LayoutTargetPositionY
-    public typealias PositionHorizontal = LayoutTargetPositionHorizontal
-    public typealias PositionVertical = LayoutTargetPositionVertical
-    public typealias PositionCenter = LayoutTargetPositionCenter
-    public typealias PositionEdge = LayoutTargetPositionEdge
-    public typealias Size = LayoutTargetSize
-    public typealias SizeList = LayoutTargetSizeList
+    public typealias Maker = LayoutConstraintMaker
+    
+    public typealias PositionX = LayoutTargetPositionX<Maker>
+    public typealias PositionY = LayoutTargetPositionY<Maker>
+    public typealias PositionHorizontal = LayoutTargetPositionHorizontal<Maker>
+    public typealias PositionVertical = LayoutTargetPositionVertical<Maker>
+    public typealias PositionCenter = LayoutTargetPositionCenter<Maker>
+    public typealias PositionEdge = LayoutTargetPositionEdge<Maker>
+    public typealias Size = LayoutTargetSize<Maker>
+    public typealias SizeList = LayoutTargetSizeList<Maker>
     
     // MARK: Properties
     private let oneself: LayoutItem

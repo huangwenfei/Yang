@@ -43,7 +43,7 @@ class BaseUpdateViewController: UIViewController {
             .offset(20)
             .active()
         
-        redTop.remake.centerX.equalToParent().active()
+        redTop.remake.centerX.equalToParent()
         
         
     }

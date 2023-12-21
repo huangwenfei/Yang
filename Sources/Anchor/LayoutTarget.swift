@@ -35,5 +35,3 @@ public class LayoutTargetType<Maker: LayoutConstraintProtocol>: LayoutTargetProt
     }
     
 }
-
-public class LayoutTarget: LayoutTargetType<LayoutConstraintMaker> { }

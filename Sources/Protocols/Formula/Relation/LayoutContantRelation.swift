@@ -7,10 +7,10 @@
 
 import Foundation
 
-public protocol LayoutContantRelation {
+public protocol LayoutContantRelation: LayoutTargetProtocol {
     
-    func equal(to contant: LayoutContantValue) -> LayoutConstraintMaker
-    func greaterOrEqual(to contant: LayoutContantValue) -> LayoutConstraintMaker
-    func lessOrEqual(to contant: LayoutContantValue) -> LayoutConstraintMaker
+    func equal(to contant: LayoutContantValue) -> Maker
+    func greaterOrEqual(to contant: LayoutContantValue) -> Maker
+    func lessOrEqual(to contant: LayoutContantValue) -> Maker
     
 }

@@ -60,7 +60,7 @@ extension LayoutTargetProtocol {
         )
     }
     
-    internal func relationToSibliingJudge<Target: LayoutTarget>(using relate: LayoutRelation, other: Target) -> Maker {
+    internal func relationToSibliingJudge<Target: LayoutTargetProtocol>(using relate: LayoutRelation, other: Target) -> Maker {
         
         LayoutFormulaRelator.relationToSibliingJudge(
             using: relate,
@@ -69,7 +69,7 @@ extension LayoutTargetProtocol {
         )
     }
     
-    internal func relationToSibliing<Target: LayoutTarget>(using relate: LayoutRelation, other: Target) -> Maker {
+    internal func relationToSibliing<Target: LayoutTargetProtocol>(using relate: LayoutRelation, other: Target) -> Maker {
         
         LayoutFormulaRelator.relationToSibliing(
             using: relate,

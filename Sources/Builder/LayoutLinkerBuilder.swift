@@ -14,14 +14,16 @@ public final class LayoutLinkerBuilder:
 {
     
     // MARK: Types
-    public typealias PositionX = LayoutLinkerPositionX
-    public typealias PositionY = LayoutLinkerPositionY
-    public typealias PositionHorizontal = LayoutLinkerPositionHorizontal
-    public typealias PositionVertical = LayoutLinkerPositionVertical
-    public typealias PositionCenter = LayoutLinkerPositionCenter
-    public typealias PositionEdge = LayoutLinkerPositionEdge
-    public typealias Size = LayoutLinkerSize
-    public typealias SizeList = LayoutLinkerSizeList
+    public typealias Maker = LayoutConstraintMaker
+    
+    public typealias PositionX = LayoutLinkerPositionX<Maker>
+    public typealias PositionY = LayoutLinkerPositionY<Maker>
+    public typealias PositionHorizontal = LayoutLinkerPositionHorizontal<Maker>
+    public typealias PositionVertical = LayoutLinkerPositionVertical<Maker>
+    public typealias PositionCenter = LayoutLinkerPositionCenter<Maker>
+    public typealias PositionEdge = LayoutLinkerPositionEdge<Maker>
+    public typealias Size = LayoutLinkerSize<Maker>
+    public typealias SizeList = LayoutLinkerSizeList<Maker>
     
     // MARK: Properties
     private let oneself: LayoutItem

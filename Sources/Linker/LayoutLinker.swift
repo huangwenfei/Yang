@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class LayoutLinkerType<Maker: LayoutConstraintMaker>: LayoutTargetProtocol, CustomReflectable {
+public class LayoutLinkerType<Maker: LayoutConstraintProtocol>: LayoutTargetProtocol, CustomReflectable {
     
     // MARK: Properties
     internal var toAnchor: LayoutConstraintAnchorTarget {
@@ -35,5 +35,3 @@ public class LayoutLinkerType<Maker: LayoutConstraintMaker>: LayoutTargetProtoco
     }
     
 }
-
-public class LayoutLinker: LayoutLinkerType<LayoutConstraintMaker> { }

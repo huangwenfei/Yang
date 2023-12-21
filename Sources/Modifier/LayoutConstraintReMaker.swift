@@ -13,14 +13,16 @@ public final class LayoutConstraintReMaker:
 {
     
     // MARK: Types
-    public typealias PositionX = LayoutTargetPositionX
-    public typealias PositionY = LayoutTargetPositionY
-    public typealias PositionHorizontal = LayoutTargetPositionHorizontal
-    public typealias PositionVertical = LayoutTargetPositionVertical
-    public typealias PositionCenter = LayoutTargetPositionCenter
-    public typealias PositionEdge = LayoutTargetPositionEdge
-    public typealias Size = LayoutTargetSize
-    public typealias SizeList = LayoutTargetSizeList
+    public typealias Maker = LayoutConstraintReMaker
+    
+    public typealias PositionX = LayoutTargetPositionX<Maker>
+    public typealias PositionY = LayoutTargetPositionY<Maker>
+    public typealias PositionHorizontal = LayoutTargetPositionHorizontal<Maker>
+    public typealias PositionVertical = LayoutTargetPositionVertical<Maker>
+    public typealias PositionCenter = LayoutTargetPositionCenter<Maker>
+    public typealias PositionEdge = LayoutTargetPositionEdge<Maker>
+    public typealias Size = LayoutTargetSize<Maker>
+    public typealias SizeList = LayoutTargetSizeList<Maker>
     
     // MARK: Properties
     internal var oldConstraint: LayoutConstraint
@@ -60,14 +62,16 @@ public final class LayoutConstraintReMakerLinker:
 {
     
     // MARK: Types
-    public typealias PositionX = LayoutLinkerPositionX
-    public typealias PositionY = LayoutLinkerPositionY
-    public typealias PositionHorizontal = LayoutLinkerPositionHorizontal
-    public typealias PositionVertical = LayoutLinkerPositionVertical
-    public typealias PositionCenter = LayoutLinkerPositionCenter
-    public typealias PositionEdge = LayoutLinkerPositionEdge
-    public typealias Size = LayoutLinkerSize
-    public typealias SizeList = LayoutLinkerSizeList
+    public typealias Maker = LayoutConstraintReMakerLinker
+    
+    public typealias PositionX = LayoutLinkerPositionX<Maker>
+    public typealias PositionY = LayoutLinkerPositionY<Maker>
+    public typealias PositionHorizontal = LayoutLinkerPositionHorizontal<Maker>
+    public typealias PositionVertical = LayoutLinkerPositionVertical<Maker>
+    public typealias PositionCenter = LayoutLinkerPositionCenter<Maker>
+    public typealias PositionEdge = LayoutLinkerPositionEdge<Maker>
+    public typealias Size = LayoutLinkerSize<Maker>
+    public typealias SizeList = LayoutLinkerSizeList<Maker>
     
     // MARK: Properties
     internal var oldConstraint: LayoutConstraint
