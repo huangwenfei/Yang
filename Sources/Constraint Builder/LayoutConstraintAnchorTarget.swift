@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal final class LayoutConstraintAnchorTarget: CustomReflectable {
+internal final class LayoutConstraintAnchorTarget: CustomReflectable, Equatable {
     
     // MARK: Properties
     internal var anchor: LayoutAnchor
@@ -39,6 +39,12 @@ internal final class LayoutConstraintAnchorTarget: CustomReflectable {
     // MARK: Copy
     internal func copy() -> LayoutConstraintAnchorTarget {
         .init(anchor: anchor, target: target)
+    }
+    
+    // MARK: Equatable
+    public static func == (lhs: LayoutConstraintAnchorTarget, rhs: LayoutConstraintAnchorTarget) -> Bool {
+        lhs.anchor == rhs.anchor &&
+        lhs.target === rhs.target
     }
     
 }

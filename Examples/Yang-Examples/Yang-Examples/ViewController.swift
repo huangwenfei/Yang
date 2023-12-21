@@ -15,7 +15,7 @@ class ViewController: UITableViewController {
     }
     
     enum TestCase: Int {
-        case base, baseBuilder
+        case make, update, remake, baseBuilder
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -25,7 +25,9 @@ class ViewController: UITableViewController {
         let vc: UIViewController
         
         switch row {
-        case .base:           vc = BaseViewController()
+        case .make:           vc = BaseViewController()
+        case .update:         vc = BaseUpdateViewController()
+        case .remake:         vc = BaseRemakeViewController()
         case .baseBuilder:    vc = BaseBuilderViewController()
         }
         

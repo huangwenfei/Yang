@@ -10,32 +10,27 @@ import Foundation
 public final class LayoutConstraintModifier:
     LayoutActivable,
     LayoutConstraintProtocol,
-    LayoutConstraintOffsetImpl,
-    LayoutConstraintPriorityImpl,
-    LayoutConstraintIdentifierImpl,
-    LayoutConstraintActiveImpl,
-    LayoutConstraintUpdateImpl
+    LayoutConstraintActiveImpl
 {
     
     // MARK: Types
-    public typealias ContantReturn = LayoutConstraintModifier
-    public typealias MultiplierReturn = LayoutConstraintModifier
-    public typealias PriorityReturn = LayoutConstraintModifier
-    public typealias IdentifierReturn = LayoutConstraintModifier
     public typealias ActiveReturn = Void
     
     // MARK: Properties
     public internal(set) var constraint: LayoutConstraint
     
-    public var isActive: Bool {
-        constraint.isActive
-    }
+    public var isActive: Bool { constraint.isActive }
     
-    public lazy private(set) var remake: LayoutConstraintReMaker = .init(
+    // MARK: Properties.Modifier
+    public lazy private(set) var updater: LayoutConstraintModifierUpdater = .init(
         constraint: constraint
     )
     
-    public lazy private(set) var remakelink: LayoutConstraintReMaker = .init(
+    public lazy private(set) var make: LayoutConstraintModifierMaker = .init(
+        constraint: constraint
+    )
+    
+    public lazy private(set) var makelink: LayoutConstraintModifierMaker = .init(
         constraint: constraint
     )
     

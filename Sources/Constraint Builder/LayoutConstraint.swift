@@ -10,7 +10,8 @@ import UIKit
 public final class LayoutConstraint: 
     LayoutActivable,
     LayoutConstraintProtocol,
-    LayoutConstraintActiveImpl
+    LayoutConstraintActiveImpl,
+    LayoutConstraintUpdateImpl
 {
     
     // MARK: Types

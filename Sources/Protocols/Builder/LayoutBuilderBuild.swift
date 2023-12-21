@@ -13,6 +13,7 @@ extension LayoutBuilderBuild {
     
     public func make(_ maker: (_ maker: Self) -> Void) {
         maker(self)
+        compresion()
         constraints.forEach({ $0.active() })
     }
     
@@ -35,8 +36,16 @@ extension LayoutBuilderBuild {
                     )
                 }
 
-                let attribute = (update.secondAttribute == .notAnAttribute) ? update.firstAttribute : update.secondAttribute
-                update.constant = constraint.formula.constant.yangContantValue(by: attribute)
+                let isUsingFirst = update.secondAttribute == .notAnAttribute
+                let attribute = isUsingFirst ? update.firstAttribute : update.secondAttribute
+                
+                let formula = constraint.formula
+                let identifier = constraint.identifier
+                
+                update.constant = formula.constant.yangContantValue(by: attribute)
+                update.priority = formula.priority.yangPriorityUIValue
+                update.identifier = identifier
+                
             })
             
         })
@@ -51,6 +60,16 @@ extension LayoutBuilderBuild {
     public func remove() {
         constraints.forEach({ $0.deactive() })
         constraints = []
+    }
+    
+}
+
+extension LayoutBuilderBuild {
+    
+    fileprivate func compresion() {
+        let compress = LayoutCompressionDict()
+        constraints.forEach({ compress.add(node: $0) })
+        constraints = compress.allValues
     }
     
 }

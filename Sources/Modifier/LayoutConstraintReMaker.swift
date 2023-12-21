@@ -1,5 +1,5 @@
 //
-//  LayoutConstraintReMaker.swift
+//  LayoutConstraintModifierMaker.swift
 //  Yang
 //
 //  Created by windy on 2023/12/20.
@@ -7,13 +7,18 @@
 
 import Foundation
 
-public final class LayoutConstraintReMaker: 
+public final class LayoutConstraintModifierMaker: 
     LayoutConstraintProtocol,
-    LayoutBuilderAnchors
+    LayoutBuilderAnchors,
+    LayoutConstraintMultiplierImpl,
+    LayoutConstraintOffsetImpl,
+    LayoutConstraintPriorityImpl,
+    LayoutConstraintIdentifierImpl,
+    LayoutConstraintActiveImpl
 {
     
     // MARK: Types
-    public typealias Maker = LayoutConstraintReMaker
+    public typealias Maker = LayoutConstraintModifierMaker
     
     public typealias PositionX = LayoutTargetPositionX<Maker>
     public typealias PositionY = LayoutTargetPositionY<Maker>
@@ -23,6 +28,12 @@ public final class LayoutConstraintReMaker:
     public typealias PositionEdge = LayoutTargetPositionEdge<Maker>
     public typealias Size = LayoutTargetSize<Maker>
     public typealias SizeList = LayoutTargetSizeList<Maker>
+    
+    public typealias MultiplierReturn = Maker
+    public typealias ContantReturn = Maker
+    public typealias PriorityReturn = Maker
+    public typealias IdentifierReturn = Maker
+    public typealias ActiveReturn = Void
     
     // MARK: Properties
     internal var oldConstraint: LayoutConstraint
@@ -56,9 +67,27 @@ public final class LayoutConstraintReMaker:
     
 }
 
+extension LayoutConstraintModifierMaker {
+    
+    public func active() {
+        diffUpdate()
+        _active()
+    }
+    
+    private func diffUpdate() {
+        
+    }
+    
+}
+
 public final class LayoutConstraintReMakerLinker:
     LayoutConstraintProtocol,
-    LayoutBuilderAnchors
+    LayoutBuilderAnchors,
+    LayoutConstraintMultiplierImpl,
+    LayoutConstraintOffsetImpl,
+    LayoutConstraintPriorityImpl,
+    LayoutConstraintIdentifierImpl,
+    LayoutConstraintActiveImpl
 {
     
     // MARK: Types
@@ -72,6 +101,12 @@ public final class LayoutConstraintReMakerLinker:
     public typealias PositionEdge = LayoutLinkerPositionEdge<Maker>
     public typealias Size = LayoutLinkerSize<Maker>
     public typealias SizeList = LayoutLinkerSizeList<Maker>
+    
+    public typealias MultiplierReturn = Maker
+    public typealias ContantReturn = Maker
+    public typealias PriorityReturn = Maker
+    public typealias IdentifierReturn = Maker
+    public typealias ActiveReturn = Void
     
     // MARK: Properties
     internal var oldConstraint: LayoutConstraint
@@ -101,6 +136,19 @@ public final class LayoutConstraintReMakerLinker:
     // MARK: LayoutBuilderAnchors
     public func makeStartPointWithAnchor<Target>(_ anchor: LayoutAnchor) -> Target where Target : LayoutTargetProtocol {
         .init(maker: .init(constraint: constraint))
+    }
+    
+}
+
+extension LayoutConstraintReMakerLinker {
+    
+    public func active() {
+        diffUpdate()
+        _active()
+    }
+    
+    private func diffUpdate() {
+        
     }
     
 }

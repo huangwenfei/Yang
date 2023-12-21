@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
         green.yang.addToParent(view)
         red.yang.addToParent(view)
         
-        let yellowEdge = yellow.yang.edge
+        yellow.yang.edge
             .equalToParent()
             .identifier("yellow-edge")
             .active()
@@ -32,12 +32,12 @@ class BaseViewController: UIViewController {
         green.yang.right.equalToParent().identifier("green-right").offset(-16).active()
         green.yang.top.equalToParent().identifier("green-top").offset(16).active()
        
-        let greenH = green.yang.height
+        green.yang.height
             .equal(to: 50)
             .identifier("green-height")
             .active()
         
-        let redTop = red.yang.top
+        red.yang.top
             .equal(to: green.yang.bottom)
             .identifier("red.top = green.bottom")
             .offset(20)
@@ -48,42 +48,6 @@ class BaseViewController: UIViewController {
             .active()
         
         red.yang.height.equal(to: green).multiplier(by: 2).active()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            greenH.deactive()
-            self.view.setNeedsUpdateConstraints()
-            print("2 second later, greenH isActive: ", greenH.isActive)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                greenH.offset(80).active()
-                self.view.setNeedsUpdateConstraints()
-                print("4 second later, greenH isActive: ", greenH.isActive)
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    redTop.offset(140).updateIfCan()
-                    self.view.setNeedsUpdateConstraints()
-                    print("6 second later, redTop isActive: ", redTop.isActive)
-                    
-                    /// animate
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        yellowEdge.offsetEdge(30).updateIfCan()
-                        self.view.setNeedsUpdateConstraints()
-                        
-                        UIViewPropertyAnimator.runningPropertyAnimator(
-                            withDuration: 2,
-                            delay: 0,
-                            animations: {
-                                self.view.layoutIfNeeded()
-                            },
-                            completion: { position in
-                                if position == .end {
-                                    green.alpha = 0.6
-                                }
-                            }
-                        )
-                    }
-                }
-            }
-        }
         
     }
     
