@@ -31,34 +31,7 @@ public class LayoutMaker<Modifier: LayoutConstraintProtocol>:
     
 }
 
-extension LayoutMaker: LayoutConstraintInternalProtocol {
-    
-    /// LayoutConstraintAnchorTarget -> LayoutConstraintItem List -> NSLayoutConstraint List
-    internal func buildConstraints() {
-        constraint.buildConstraints()
-    }
-    
-    internal func removeConstraints() {
-        constraint.removeConstraints()
-    }
-    
-    internal func activeConstraints() {
-        constraint.activeConstraints()
-    }
-    
-    internal func deactiveConstraints() {
-        constraint.deactiveConstraints()
-    }
-    
-    internal func cacheConstraint() {
-        constraint.cacheConstraint()
-    }
-    
-    internal func cleanConstraint() {
-        constraint.cleanConstraint()
-    }
-    
-}
+extension LayoutMaker: LayoutConstraintInternalProtocol { }
 
 extension LayoutMaker {
     

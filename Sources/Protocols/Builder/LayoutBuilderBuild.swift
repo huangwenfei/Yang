@@ -30,10 +30,7 @@ extension LayoutBuilderBuild {
             
             constraint.constraints.forEach({ item in
                 guard let update = existings.first(where: { $0 == item }) else {
-                    fatalError(
-                        String(describing: constraint) +
-                            LayoutError.cantUpdate.localizedDescription
-                    )
+                    return
                 }
 
                 let isUsingFirst = update.secondAttribute == .notAnAttribute
@@ -50,6 +47,12 @@ extension LayoutBuilderBuild {
             
         })
     
+    }
+    
+    public func replace(_ maker: (_ maker: Self) -> Void) {
+        compresion()
+        update(maker)
+        constraints.forEach({ $0.active() })
     }
     
     public func remake(_ maker: (_ maker: Self) -> Void) {

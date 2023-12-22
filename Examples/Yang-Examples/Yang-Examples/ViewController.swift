@@ -15,7 +15,7 @@ class ViewController: UITableViewController {
     }
     
     enum TestCase: Int {
-        case make, update, remake, baseBuilder
+        case make, update, remake, baseBuilder, linkBuilder
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -29,6 +29,7 @@ class ViewController: UITableViewController {
         case .update:         vc = BaseUpdateViewController()
         case .remake:         vc = BaseRemakeViewController()
         case .baseBuilder:    vc = BaseBuilderViewController()
+        case .linkBuilder:    vc = BaseLinkBuilderViewController()
         }
         
         present(vc, animated: true)

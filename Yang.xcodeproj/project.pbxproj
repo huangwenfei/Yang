@@ -20,6 +20,7 @@
 		2323285A2B33409000F1E715 /* LayoutReMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232328592B33409000F1E715 /* LayoutReMaker.swift */; };
 		234B284A2B32C5E700B93BB6 /* LayoutMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B28492B32C5E700B93BB6 /* LayoutMaker.swift */; };
 		234B284C2B32C67D00B93BB6 /* LayoutConstraintProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B284B2B32C67D00B93BB6 /* LayoutConstraintProtocol.swift */; };
+		235105BC2B35CE79008631A8 /* LayoutCommonMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235105BB2B35CE79008631A8 /* LayoutCommonMaker.swift */; };
 		237B754A2B357E4600E904FB /* LayoutModifier+Limit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B75492B357E4600E904FB /* LayoutModifier+Limit.swift */; };
 		237B754C2B357E6F00E904FB /* LayoutMaker+Limit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B754B2B357E6F00E904FB /* LayoutMaker+Limit.swift */; };
 		237B75542B358E9C00E904FB /* LayoutReplacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B75532B358E9C00E904FB /* LayoutReplacer.swift */; };
@@ -137,6 +138,7 @@
 		232328592B33409000F1E715 /* LayoutReMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutReMaker.swift; sourceTree = "<group>"; };
 		234B28492B32C5E700B93BB6 /* LayoutMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutMaker.swift; sourceTree = "<group>"; };
 		234B284B2B32C67D00B93BB6 /* LayoutConstraintProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintProtocol.swift; sourceTree = "<group>"; };
+		235105BB2B35CE79008631A8 /* LayoutCommonMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutCommonMaker.swift; sourceTree = "<group>"; };
 		237B75492B357E4600E904FB /* LayoutModifier+Limit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutModifier+Limit.swift"; sourceTree = "<group>"; };
 		237B754B2B357E6F00E904FB /* LayoutMaker+Limit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutMaker+Limit.swift"; sourceTree = "<group>"; };
 		237B75532B358E9C00E904FB /* LayoutReplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutReplacer.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				234B28492B32C5E700B93BB6 /* LayoutMaker.swift */,
 				237B754B2B357E6F00E904FB /* LayoutMaker+Limit.swift */,
+				235105BB2B35CE79008631A8 /* LayoutCommonMaker.swift */,
 			);
 			path = Maker;
 			sourceTree = "<group>";
@@ -824,6 +827,7 @@
 				23F392ED2B31944C006D7033 /* LayoutIdentifierParameter.swift in Sources */,
 				23F392AB2B31944C006D7033 /* LayoutParentMark.swift in Sources */,
 				23F392DA2B31944C006D7033 /* LayoutManager.swift in Sources */,
+				235105BC2B35CE79008631A8 /* LayoutCommonMaker.swift in Sources */,
 				23F392E62B31944C006D7033 /* LayoutParentRelation.swift in Sources */,
 				23F392D62B31944C006D7033 /* LayoutContantValue.swift in Sources */,
 				23F392F32B31944C006D7033 /* LayoutSizeAnchor.swift in Sources */,

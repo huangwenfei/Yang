@@ -52,3 +52,32 @@ internal protocol LayoutConstraintInternalProtocol {
     func cacheConstraint()
     func cleanConstraint()
 }
+
+extension LayoutConstraintInternalProtocol where Self: LayoutConstraintProtocol {
+    
+    /// LayoutConstraintAnchorTarget -> LayoutConstraintItem List -> NSLayoutConstraint List
+    internal func buildConstraints() {
+        constraint.buildConstraints()
+    }
+    
+    internal func removeConstraints() {
+        constraint.removeConstraints()
+    }
+    
+    internal func activeConstraints() {
+        constraint.activeConstraints()
+    }
+    
+    internal func deactiveConstraints() {
+        constraint.deactiveConstraints()
+    }
+    
+    internal func cacheConstraint() {
+        constraint.cacheConstraint()
+    }
+    
+    internal func cleanConstraint() {
+        constraint.cleanConstraint()
+    }
+    
+}
