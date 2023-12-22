@@ -8,16 +8,16 @@
 import Foundation
 
 public protocol LayoutBuilderAnchors: LayoutAnchors where
-    Self: LayoutBuilderPortocol,
-    PositionX.Maker == PositionY.Maker,
-    PositionY.Maker == PositionCenter.Maker,
-    PositionCenter.Maker == PositionHorizontal.Maker,
-    PositionHorizontal.Maker == PositionVertical.Maker,
-    PositionVertical.Maker == PositionEdge.Maker,
-    PositionEdge.Maker == Size.Maker,
-    Size.Maker == SizeList.Maker
+    Self: LayoutBuilderPortocol///,
+//    PositionX.Maker == PositionY.Maker,
+//    PositionY.Maker == PositionCenter.Maker,
+//    PositionCenter.Maker == PositionHorizontal.Maker,
+//    PositionHorizontal.Maker == PositionVertical.Maker,
+//    PositionVertical.Maker == PositionEdge.Maker,
+//    PositionEdge.Maker == Size.Maker,
+//    Size.Maker == SizeList.Maker
 {
-    func makeStartPointWithAnchor<Target>(_ anchor: LayoutAnchor) -> Target where Target: LayoutTargetProtocol, Target.Maker == PositionX.Maker
+    func makeStartPointWithAnchor<Target>(_ anchor: LayoutAnchor) -> Target where Target: LayoutTargetProtocol
 }
 
 extension LayoutBuilderAnchors {

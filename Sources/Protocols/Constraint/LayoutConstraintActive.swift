@@ -50,3 +50,20 @@ extension LayoutConstraintActiveImpl where Self.ActiveReturn == Self {
     }
     
 }
+
+extension LayoutConstraintActiveImpl where Self.ActiveReturn: LayoutConstraintProtocol {
+    
+    @discardableResult
+    public func active() -> ActiveReturn {
+        _active()
+        return self as! Self.ActiveReturn
+    }
+    
+    @discardableResult
+    public func deactive() -> ActiveReturn {
+        _deactive()
+        return self as! Self.ActiveReturn
+    }
+    
+}
+

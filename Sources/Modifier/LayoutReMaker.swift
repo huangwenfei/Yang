@@ -1,5 +1,5 @@
 //
-//  LayoutConstraintModifierMaker.swift
+//  LayoutReMaker.swift
 //  Yang
 //
 //  Created by windy on 2023/12/20.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class LayoutConstraintModifierMaker: 
+public final class LayoutReMaker: 
     LayoutBuilderConstraints,
     LayoutConstraintProtocol,
     LayoutBuilderAnchors,
@@ -18,7 +18,7 @@ public final class LayoutConstraintModifierMaker:
     LayoutConstraintActiveImpl
 {
     // MARK: Types
-    public typealias Maker = LayoutConstraintModifierMaker
+    public typealias Maker = LayoutReMaker
     
     public typealias PositionX = LayoutTargetPositionX<Maker>
     public typealias PositionY = LayoutTargetPositionY<Maker>
@@ -36,18 +36,23 @@ public final class LayoutConstraintModifierMaker:
     public typealias ActiveReturn = Void
     
     // MARK: Properties
+    /// The Old One , Real Start Point
+    public private(set) var oldConstraint: LayoutConstraint
+    /// Current Edit Constraint
     public private(set) var constraint: LayoutConstraint
     
+    /// All Currents, New Create Constraints
     public var constraints: [LayoutConstraint]
     
     // MARK: Init
     public init(constraint: LayoutConstraint) {
         self.constraints = []
-        self.constraint = constraint.copy()
+        self.oldConstraint = constraint.copy()
+        self.constraint = oldConstraint
     }
     
     public var layoutItem: LayoutItem {
-        constraint.target.target!
+        oldConstraint.target.target!
     }
     
     public init(layoutItem: LayoutItem) {
@@ -57,28 +62,35 @@ public final class LayoutConstraintModifierMaker:
     // MARK: LayoutConstraintProtocol
     public func elements() -> [ReflectableElement] {
         [
-            ("oldConstraint", constraint),
+            ("oldConstraint", oldConstraint),
+            ("constraint", constraint),
             ("constraints", constraints)
         ]
     }
     
     // MARK: LayoutBuilderAnchors
     public func makeStartPointWithAnchor<Target>(_ anchor: LayoutAnchor) -> Target where Target : LayoutTargetProtocol {
-        let maker: Target.Maker = createMaker(by: anchor)
-        constraints.append(maker.constraint)
-        return .init(maker: maker)
+        constraint = LayoutConstraint(
+            target: .init(anchor: anchor, target: layoutItem),
+            related: .none,
+            formula: LayoutFormulaRelator.defaultFormula(using: .equal)
+        )
+        constraints.append(constraint)
+        return .init(maker: self as! Target.Maker)
     }
     
 }
 
-extension LayoutConstraintModifierMaker {
+extension LayoutReMaker {
     
     public func active() {
+        constraint = oldConstraint
         diffUpdate(old: constraint)
         constraints.forEach({ $0.active() })
     }
     
     public func deactive() -> Void {
+        constraint = oldConstraint
         constraints.forEach({ $0.deactive() })
     }
     

@@ -7,10 +7,6 @@
 
 import Foundation
 
-public protocol LayoutModifierProtocol:
-    LayoutConstraintActiveImpl where Self.ActiveReturn == Void
-{ }
-
 public class LayoutModifier<Replacer: LayoutConstraintProtocol>:
     LayoutActivable,
     LayoutConstraintProtocol,
@@ -23,15 +19,11 @@ public class LayoutModifier<Replacer: LayoutConstraintProtocol>:
     public var isActive: Bool { constraint.isActive }
     
     // MARK: Properties.Modifier
-    public lazy private(set) var updater: LayoutConstraintModifierUpdater = .init(
+    public lazy private(set) var updater: LayoutUpdater = .init(
         constraint: constraint
     )
     
     public lazy private(set) var replacer: Replacer = .init(
-        constraint: constraint
-    )
-    
-    public lazy private(set) var make: LayoutConstraintModifierMaker = .init(
         constraint: constraint
     )
     

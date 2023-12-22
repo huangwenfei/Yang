@@ -40,12 +40,7 @@ extension LayoutConstraintProtocol {
         get { constraint.formula }
         set { constraint.formula = newValue }
     }
-    
-    internal var constraints: [LayoutTypes.LayoutConstraintTarget] {
-        get { constraint.constraints }
-        set { constraint.constraints = newValue }
-    }
-    
+
 }
 
 

@@ -1,5 +1,5 @@
 //
-//  LayoutConstraintMaker.swift
+//  LayoutMaker.swift
 //  Yang
 //
 //  Created by windy on 2023/12/20.
@@ -7,27 +7,27 @@
 
 import Foundation
 
-public final class LayoutConstraintMaker: 
-    LayoutConstraintProtocol,
+public protocol LayoutMakerProtocol:
     LayoutConstraintOffsetImpl,
     LayoutConstraintMultiplierImpl,
     LayoutConstraintPriorityImpl,
-    LayoutConstraintIdentifierImpl,
-    LayoutConstraintActiveImpl
+    LayoutConstraintIdentifierImpl
 {
     
+}
+
+public class LayoutMaker<Modifier: LayoutConstraintProtocol>:
+    LayoutConstraintProtocol,
+    LayoutConstraintActiveImpl
+{
     // MARK: Types
-    public typealias ContantReturn = LayoutConstraintMaker
-    public typealias MultiplierReturn = LayoutConstraintMaker
-    public typealias PriorityReturn = LayoutConstraintMaker
-    public typealias IdentifierReturn = LayoutConstraintMaker
-    public typealias ActiveReturn = LayoutConstraintModifier
+    public typealias Modifier = Modifier
     
     // MARK: Properties
     public internal(set) var constraint: LayoutConstraint
     
     // MARK: Init
-    public init(constraint: LayoutConstraint) {
+    required public init(constraint: LayoutConstraint) {
         self.constraint = constraint
     }
     
@@ -40,7 +40,7 @@ public final class LayoutConstraintMaker:
     
 }
 
-extension LayoutConstraintMaker: LayoutConstraintInternalProtocol {
+extension LayoutMaker: LayoutConstraintInternalProtocol {
     
     /// LayoutConstraintAnchorTarget -> LayoutConstraintItem List -> NSLayoutConstraint List
     internal func buildConstraints() {
@@ -69,16 +69,16 @@ extension LayoutConstraintMaker: LayoutConstraintInternalProtocol {
     
 }
 
-extension LayoutConstraintMaker {
+extension LayoutMaker {
     
     @discardableResult
-    public func active() -> LayoutConstraintModifier {
+    public func active() -> Modifier {
         _active()
         return .init(constraint: constraint)
     }
     
     @discardableResult
-    public func deactive() -> LayoutConstraintModifier {
+    public func deactive() -> Modifier {
         _deactive()
         return .init(constraint: constraint)
     }

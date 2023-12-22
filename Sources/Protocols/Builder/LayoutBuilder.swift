@@ -28,7 +28,7 @@ extension LayoutBuilderConstraints {
         })
         
         /// - Tag: Find New Constraint
-        if let new = compress.find(node: constraint) {
+        if constraint.isActive == true, let new = compress.find(node: constraint) {
             
             var shouldReactive = false
             

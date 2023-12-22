@@ -61,12 +61,15 @@ public final class LayoutConstraint:
     
     // MARK: Copy
     public func copy() -> LayoutConstraint {
-        .init(
+        let result = LayoutConstraint(
             target: target.copy(),
             related: related.copy(),
             formula: formula,
             identifier: identifier
         )
+        result.isActive = isActive
+        result.constraints = constraints
+        return result
     }
     
 }
@@ -94,13 +97,16 @@ extension LayoutConstraint: LayoutConstraintInternalProtocol {
     
     internal func activeConstraints() {
         constraints.forEach({
-            guard
-                let first = ($0.firstItem as? LayoutItem),
-                let second = ($0.secondItem as? LayoutItem)
-            else { return }
-            
+            guard let first = ($0.firstItem as? LayoutItem) else {
+                return
+            }
             first.prepareAndSaveState()
-            if second !== first.parent { second.prepareAndSaveState() }
+            
+            if let second = ($0.secondItem as? LayoutItem),
+               second !== first.parent 
+            {
+                second.prepareAndSaveState()
+            }
         })
         LayoutTypes.LayoutConstraintTarget.activate(constraints)
         isActive = true
@@ -108,13 +114,16 @@ extension LayoutConstraint: LayoutConstraintInternalProtocol {
     
     internal func deactiveConstraints() {
         constraints.forEach({
-            guard
-                let first = ($0.firstItem as? LayoutItem),
-                let second = ($0.secondItem as? LayoutItem)
-            else { return }
-            
+            guard let first = ($0.firstItem as? LayoutItem) else {
+                return
+            }
             first.resetState()
-            if second !== first.parent { second.resetState() }
+            
+            if let second = ($0.secondItem as? LayoutItem),
+               second !== first.parent
+            {
+                second.resetState()
+            }
         })
         LayoutTypes.LayoutConstraintTarget.deactivate(constraints)
         isActive = false

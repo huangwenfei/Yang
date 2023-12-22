@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class LayoutConstraintModifierUpdater:
+public final class LayoutUpdater:
     LayoutActivable,
     LayoutConstraintProtocol,
     LayoutConstraintOffsetImpl,
@@ -18,9 +18,9 @@ public final class LayoutConstraintModifierUpdater:
 {
     
     // MARK: Types
-    public typealias ContantReturn = LayoutConstraintModifierUpdater
-    public typealias PriorityReturn = LayoutConstraintModifierUpdater
-    public typealias IdentifierReturn = LayoutConstraintModifierUpdater
+    public typealias ContantReturn = LayoutUpdater
+    public typealias PriorityReturn = LayoutUpdater
+    public typealias IdentifierReturn = LayoutUpdater
     public typealias ActiveReturn = Void
     
     // MARK: Properties
@@ -40,6 +40,15 @@ public final class LayoutConstraintModifierUpdater:
         [
             ("constraint", constraint)
         ]
+    }
+    
+}
+
+extension LayoutUpdater {
+    
+    public func active() -> Void {
+        updateIfCan()
+        _active()
     }
     
 }

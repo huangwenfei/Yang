@@ -131,20 +131,32 @@ class BaseRemakeViewController: UIViewController {
             .identifier("red.leading.trailing = green.leading.trailing")
             .active()
         
-        red.yang.height.equal(to: green).multiplier(by: 2).active()
+        red.yang.height
+            .equal(to: green)
+            .multiplier(by: 2)
+            .active()
         
         
         pink.yanglink.leading.trailing.equalToParent().active()
-        pink.yang.top.equal(to: red.yang.bottom).active()
-        pink.yang.height.equal(to: 80)
+        pink.yang.top.equal(to: red.yang.bottom).offset(16).active()
+        pink.yang.height.equal(to: 80).active()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            greenH.make
-                .height.equal(to: pink)
-                .width.equalToParent().multiplier(by: 2)
-                .bottom.equalToParent().offset(5)
+            print("2 second later")
+            greenH.replacer
+                .equal(to: pink)
+                .multiplier(by: 2)
+                .offset(10)
                 .active()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                print("4 second later")
+                yellowEdge.updater
+                    .offset(40)
+                    .active()
+            }
         }
+        
     }
     
 }
