@@ -29,17 +29,17 @@ extension LayoutSizeRelationImpl where Self: LayoutTargetProtocol {
     
     /// - Tag: Sibling Size
     @discardableResult
-    public func equal(to other: LayoutTargetSize<Maker>) -> Maker {
+    public func equal(to other: Self) -> Maker {
         relationToSibliingJudge(using: .equal, other: other)
     }
     
     @discardableResult
-    public func greaterOrEqual(to other: LayoutTargetSize<Maker>) -> Maker {
+    public func greaterOrEqual(to other: Self) -> Maker {
         relationToSibliingJudge(using: .greaterThanOrEqual, other: other)
     }
     
     @discardableResult
-    public func lessOrEqual(to other: LayoutTargetSize<Maker>) -> Maker {
+    public func lessOrEqual(to other: Self) -> Maker {
         relationToSibliingJudge(using: .lessThanOrEqual, other: other)
     }
     

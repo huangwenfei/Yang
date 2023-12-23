@@ -64,44 +64,15 @@ public class LayoutReplacer:
 extension LayoutReplacer {
     
     public func active() {
-        diffUpdate(old: oldConstraint, new: constraint)
+        LayoutConstraintUpdater.diffUpdate(
+            old: oldConstraint, new: constraint
+        )
         constraint.active()
         oldConstraint = constraint.copy()
     }
     
     public func deactive() -> Void {
         [constraint, oldConstraint].forEach({ $0.deactive() })
-    }
-    
-    internal func diffUpdate(old: LayoutConstraint, new: LayoutConstraint) {
-        
-        guard old.isActive else { return }
-        
-        var shouldReactive = false
-        
-        /// - Tag: Relate
-        if new.related != old.related {
-            old.deactive()
-            shouldReactive = true
-        }
-        
-        /// - Tag: Multiplier
-        let newMultiplier = new.formula.multiplier.yangMultiplierValue
-        let oldMultiplier = old.formula.multiplier.yangMultiplierValue
-        if newMultiplier != oldMultiplier {
-            old.deactive()
-            shouldReactive = true
-        }
-        
-        /// - Tag:  Identifier / Priority / Offset
-        if shouldReactive == false {
-            old.identifier = new.identifier
-            old.formula.priority = new.formula.priority
-            old.formula.constant = new.formula.constant
-            
-            old.updateIfCan()
-        }
-        
     }
     
 }

@@ -121,7 +121,7 @@ class BaseRemakeViewController: UIViewController {
             .identifier("green-height")
             .active()
         
-        let redTop = red.yang.top
+        red.yang.top
             .equal(to: green.yang.bottom)
             .identifier("red.top = green.bottom")
             .offset(20)

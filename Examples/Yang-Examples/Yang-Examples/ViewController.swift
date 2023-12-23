@@ -28,8 +28,8 @@ class ViewController: UITableViewController {
         case .make:           vc = BaseViewController()
         case .update:         vc = BaseUpdateViewController()
         case .remake:         vc = BaseRemakeViewController()
-        case .baseBuilder:    vc = BaseBuilderViewController()
-        case .linkBuilder:    vc = BaseLinkBuilderViewController()
+        case .baseBuilder:    vc = BaseBatchViewController()
+        case .linkBuilder:    vc = BatchUpdateViewController()
         }
         
         present(vc, animated: true)

@@ -17,6 +17,10 @@ extension UIView {
         .init(layoutItem: self)
     }
     
+    public var yangbatch: LayoutBatchManager {
+        .init(layoutItem: self)
+    }
+    
 }
 
 extension UIView: LayoutItem {  }

@@ -1,5 +1,5 @@
 //
-//  LayoutCommonMaker.swift
+//  LayoutSimpleUpdater.swift
 //  Yang
 //
 //  Created by windy on 2023/12/22.
@@ -7,16 +7,17 @@
 
 import Foundation
 
-public class LayoutCommonMaker:
+public class LayoutSimpleUpdater:
     LayoutConstraintProtocol,
-    LayoutMakerProtocol
+    LayoutConstraintOffsetImpl,
+    LayoutConstraintPriorityImpl,
+    LayoutConstraintIdentifierImpl
 {
     
     // MARK: Types
-    public typealias Maker = LayoutCommonMaker
+    public typealias Maker = LayoutSimpleUpdater
     
     public typealias ContantReturn = Maker
-    public typealias MultiplierReturn = Maker
     public typealias PriorityReturn = Maker
     public typealias IdentifierReturn = Maker
     

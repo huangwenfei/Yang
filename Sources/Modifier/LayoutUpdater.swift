@@ -10,9 +10,7 @@ import Foundation
 public final class LayoutUpdater:
     LayoutActivable,
     LayoutConstraintProtocol,
-    LayoutConstraintOffsetImpl,
-    LayoutConstraintPriorityImpl,
-    LayoutConstraintIdentifierImpl,
+    LayoutUpdaterProtocol,
     LayoutConstraintActiveImpl,
     LayoutConstraintUpdateImpl
 {

@@ -15,3 +15,11 @@ public protocol LayoutMakerProtocol:
 {
     
 }
+
+public protocol LayoutUpdaterProtocol:
+    LayoutConstraintOffsetImpl,
+    LayoutConstraintPriorityImpl,
+    LayoutConstraintIdentifierImpl
+{
+    
+}

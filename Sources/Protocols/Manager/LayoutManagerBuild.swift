@@ -13,15 +13,21 @@ public protocol LayoutManagerBuild where Self: LayoutManager {
 
 extension LayoutManagerBuild {
     
-    public func make(_ maker: (_ maker: Builder) -> Void) {
+    public typealias Maker = (_ make: Builder) -> Void
+    
+    public func make(_ maker: Maker) {
         Builder(layoutItem: layoutItem).make(maker)
     }
     
-    public func update(_ maker: (_ maker: Builder) -> Void) {
+    public func update(_ maker: Maker) {
         Builder(layoutItem: layoutItem).update(maker)
     }
     
-    public func remake(_ maker: (_ maker: Builder) -> Void) {
+    public func replace(_ maker: Maker) {
+        Builder(layoutItem: layoutItem).replace(maker)
+    }
+    
+    public func remake(_ maker: Maker) {
         Builder(layoutItem: layoutItem).remake(maker)
     }
     
@@ -30,3 +36,6 @@ extension LayoutManagerBuild {
     }
     
 }
+
+
+public protocol LayoutManagerLinkerBuild: LayoutManagerBuild where Builder == LayoutBatchLinkerBuilder { }

@@ -1,27 +1,27 @@
 //
-//  LayoutLinkerBuilder.swift
-//  WakeUI
+//  LayoutBatchLinkerBuilder.swift
+//  Yang
 //
-//  Created by windy on 2023/12/18.
+//  Created by windy on 2023/12/23.
 //
 
 import UIKit
 
-public final class LayoutLinkerBuilder:
+public final class LayoutBatchLinkerBuilder:
     LayoutBuilder,
     LayoutBuilderAnchors,
     LayoutBuilderBuild
 {
     
     // MARK: Types
-    public typealias MakerX = LayoutMakerX
-    public typealias MakerY = LayoutMakerY
-    public typealias MakerCenter = LayoutMakerCenter
-    public typealias MakerHorizontal = LayoutMakerHorizontal
-    public typealias MakerVertical = LayoutMakerVertical
-    public typealias MakerEdge = LayoutMakerEdge
-    public typealias MakerSize = LayoutMakerSize
-    public typealias MakerSizeList = LayoutMakerSizeList
+    public typealias MakerX = LayoutMakerVoidX
+    public typealias MakerY = LayoutMakerVoidY
+    public typealias MakerCenter = LayoutMakerVoidCenter
+    public typealias MakerHorizontal = LayoutMakerVoidHorizontal
+    public typealias MakerVertical = LayoutMakerVoidVertical
+    public typealias MakerEdge = LayoutMakerVoidEdge
+    public typealias MakerSize = LayoutMakerVoidSize
+    public typealias MakerSizeList = LayoutMakerVoidSizeList
     
     public typealias PositionX = LayoutLinkerPositionX<MakerX>
     public typealias PositionY = LayoutLinkerPositionY<MakerY>

@@ -17,6 +17,10 @@ extension UILayoutGuide {
         .init(layoutItem: self)
     }
     
+    public var yangbatch: LayoutBatchManager {
+        .init(layoutItem: self)
+    }
+    
 }
 
 extension UILayoutGuide: LayoutItem { }

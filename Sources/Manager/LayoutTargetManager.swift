@@ -10,8 +10,7 @@ import Foundation
 public struct LayoutTargetManager:
     LayoutManager,
     LayoutManagerViewHierarchy,
-    LayoutBuilderAnchors,
-    LayoutManagerBuild
+    LayoutBuilderAnchors
 {
     
     // MARK: Types
@@ -32,8 +31,6 @@ public struct LayoutTargetManager:
     public typealias PositionEdge = LayoutTargetPositionEdge<MakerEdge>
     public typealias Size = LayoutTargetSize<MakerSize>
     public typealias SizeList = LayoutTargetSizeList<MakerSizeList>
-    
-    public typealias Builder = LayoutTargetBuilder
     
     // MARK: Properties
     private let oneself: LayoutItem

@@ -11,60 +11,76 @@ public protocol LayoutBuilderBuild where Self: LayoutBuilder { }
 
 extension LayoutBuilderBuild {
     
-    public func make(_ maker: (_ maker: Self) -> Void) {
-        maker(self)
-        compresion()
+    public typealias Maker = (_ maker: Self) -> Void
+    
+    public func make(_ maker: Maker) {
+        makeConstraints(maker)
         constraints.forEach({ $0.active() })
     }
     
-    public func update(_ maker: (_ maker: Self) -> Void) {
-        guard layoutItem.constraints.isEmpty else {
-            make(maker)
+    public func update(_ maker: Maker) {
+        
+        let oldConstraints = layoutItem.constraints
+        
+        guard !oldConstraints.isEmpty else {
+            self.make(maker)
             return
         }
         
+        makeConstraints(maker)
+        
         constraints.forEach({ constraint in
-            let existings = layoutItem.constraints.reduce([], {
-                $0 + $1.constraints
-            })
+            guard let old = oldConstraints.first(where: {
+                $0.anchor == constraint.anchor
+            }) else {
+                return
+            }
             
-            constraint.constraints.forEach({ item in
-                guard let update = existings.first(where: { $0 == item }) else {
-                    return
-                }
-
-                let isUsingFirst = update.secondAttribute == .notAnAttribute
-                let attribute = isUsingFirst ? update.firstAttribute : update.secondAttribute
-                
-                let formula = constraint.formula
-                let identifier = constraint.identifier
-                
-                update.constant = formula.constant.yangContantValue(by: attribute)
-                update.priority = formula.priority.yangPriorityUIValue
-                update.identifier = identifier
-                
-            })
-            
+            old.updateIfCan()
         })
     
     }
     
-    public func replace(_ maker: (_ maker: Self) -> Void) {
-        compresion()
-        update(maker)
+    public func replace(_ maker: Maker) {
+        let oldConstraints = layoutItem.constraints
+        
+        guard !oldConstraints.isEmpty else {
+            self.make(maker)
+            return
+        }
+        
+        makeConstraints(maker)
+        
+        constraints.forEach({ constraint in
+            guard let old = oldConstraints.first(where: {
+                $0.anchor == constraint.anchor
+            }) else {
+                return
+            }
+            
+            LayoutConstraintUpdater.diffUpdate(old: old, new: constraint)
+        })
+        
         constraints.forEach({ $0.active() })
     }
     
-    public func remake(_ maker: (_ maker: Self) -> Void) {
+    public func remake(_ maker: Maker) {
         remove()
         make(maker)
     }
     
     public func remove() {
-        constraints.forEach({ $0.deactive() })
+        layoutItem.constraints.forEach({ $0.deactive() })
         constraints = []
     }
     
+}
+
+extension LayoutBuilderBuild {
+    internal func makeConstraints(_ maker: Maker) {
+        maker(self)
+        compresion()
+    }
 }
 
 extension LayoutBuilderBuild {
