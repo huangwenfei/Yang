@@ -44,7 +44,7 @@ extension LayoutManagerBatchBuild {
                 return
             }
             
-            old.updateIfCan()
+            old.updateIfCan(by: constraint)
         })
     }
     

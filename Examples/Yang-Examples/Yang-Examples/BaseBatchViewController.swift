@@ -141,9 +141,9 @@ class BatchUpdateViewController: UIViewController {
                     print("6 second later")
                     purple.yangbatch.update { make in
                         make.left.right
-                            .offsetEdge(40)
+                            .offsetEdge(60)
                         make.top.bottom
-                            .offsetEdge(40)
+                            .offsetEdge(80)
                     }
                 }
             }

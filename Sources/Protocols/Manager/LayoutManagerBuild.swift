@@ -39,7 +39,7 @@ extension LayoutManagerBuild {
                 return
             }
             
-            old.updateIfCan()
+            old.updateIfCan(by: constraint)
         })
     
     }
