@@ -14,7 +14,6 @@ public struct LayoutBatchManager:
     LayoutManagerBuild,
     LayoutManagerBatchBuild
 {
-    
     // MARK: Types
     public typealias MakerX = LayoutMakerVoidX
     public typealias MakerY = LayoutMakerVoidY
@@ -37,7 +36,11 @@ public struct LayoutBatchManager:
     public typealias TargetBuilder = LayoutBatchTargetBuilder
     public typealias LinkerBuilder = LayoutBatchLinkerBuilder
     
+    public typealias TargetUpdater = LayoutBatchTargetUpdater
+    public typealias LinkerUpdater = LayoutBatchLinkUpdater
+    
     public typealias Builder = LinkerBuilder
+    public typealias Updater = LinkerUpdater
     
     // MARK: Properties
     private let oneself: LayoutItem

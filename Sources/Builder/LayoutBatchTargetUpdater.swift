@@ -8,20 +8,21 @@
 import Foundation
 
 public final class LayoutBatchTargetUpdater:
+    LayoutBuilder,
     LayoutBuilderAnchors
 {
     
     // MARK: Types
     public typealias Maker = LayoutSimpleUpdater
     
-    public typealias PositionX = LayoutLinkUpdateX<Maker>
-    public typealias PositionY = LayoutLinkUpdateY<Maker>
-    public typealias PositionHorizontal = LayoutLinkUpdateHorizontal<Maker>
-    public typealias PositionVertical = LayoutLinkUpdateVertical<Maker>
-    public typealias PositionCenter = LayoutLinkUpdateCenter<Maker>
-    public typealias PositionEdge = LayoutLinkUpdateEdge<Maker>
-    public typealias Size = LayoutLinkUpdateSize<Maker>
-    public typealias SizeList = LayoutLinkUpdateSizeList<Maker>
+    public typealias PositionX = LayoutTargetUpdateX<Maker>
+    public typealias PositionY = LayoutTargetUpdateY<Maker>
+    public typealias PositionHorizontal = LayoutTargetUpdateHorizontal<Maker>
+    public typealias PositionVertical = LayoutTargetUpdateVertical<Maker>
+    public typealias PositionCenter = LayoutTargetUpdateCenter<Maker>
+    public typealias PositionEdge = LayoutTargetUpdateEdge<Maker>
+    public typealias Size = LayoutTargetUpdateSize<Maker>
+    public typealias SizeList = LayoutTargetUpdateSizeList<Maker>
     
     // MARK: Properties
     private let oneself: LayoutItem

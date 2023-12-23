@@ -28,8 +28,15 @@ extension LayoutConstraintProtocol where Self: LayoutConstraint {
 
 extension LayoutConstraintProtocol {
     
-    internal var anchor: LayoutAnchor { constraint.target.anchor }
-    internal var target: LayoutItem? { constraint.target.target }
+    internal var anchor: LayoutAnchor { 
+        get { constraint.target.anchor }
+        set { constraint.target.anchor = newValue }
+    }
+    
+    internal var target: LayoutItem? {
+        get { constraint.target.target }
+        set { constraint.target.target = newValue }
+    }
     
     internal var related: LayoutConstraintAnchorTarget {
         get { constraint.related }

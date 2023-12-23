@@ -9,11 +9,11 @@ import Foundation
 
 public protocol LayoutManagerBatchBuild where Self: LayoutManager {
     
-    associatedtype TargetBuilder: LayoutBuilderBuild
-    associatedtype LinkerBuilder: LayoutBuilderBuild
+    associatedtype TargetBuilder: LayoutBuilder
+    associatedtype LinkerBuilder: LayoutBuilder
     
-    associatedtype TargetUpdater: LayoutConstraintProtocol
-    associatedtype LinkerUpdater: LayoutConstraintProtocol
+    associatedtype TargetUpdater: LayoutBuilder
+    associatedtype LinkerUpdater: LayoutBuilder
     
 }
 
@@ -35,7 +35,7 @@ extension LayoutManagerBatchBuild {
             return
         }
         
-        let constraints = makeConstraints(maker)
+        let constraints = makeConstraints(updater)
         
         constraints.forEach({ constraint in
             guard let old = oldConstraints.first(where: {
@@ -92,13 +92,13 @@ extension LayoutManagerBatchBuild {
     }
     
     fileprivate func makeConstraints(_ maker: UpdateClosure) -> [LayoutConstraint] {
-        let target = TargetUpdater(constraint: )
-        let linker = LinkerUpdater(constraint: )
+        let target = TargetUpdater(layoutItem: layoutItem)
+        let linker = LinkerUpdater(layoutItem: layoutItem)
         maker(target, linker)
         return compresion(target: target, linker: linker)
     }
     
-    fileprivate func compresion(target: TargetBuilder, linker: LinkerBuilder) -> [LayoutConstraint] {
+    fileprivate func compresion(target: LayoutBuilderConstraints, linker: LayoutBuilderConstraints) -> [LayoutConstraint] {
         let compress = LayoutCompressionDict()
         target.constraints.forEach({ compress.add(node: $0) })
         linker.constraints.forEach({ compress.add(node: $0) })

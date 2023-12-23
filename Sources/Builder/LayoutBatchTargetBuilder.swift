@@ -9,8 +9,7 @@ import UIKit
 
 public final class LayoutBatchTargetBuilder:
     LayoutBuilder,
-    LayoutBuilderAnchors,
-    LayoutBuilderBuild
+    LayoutBuilderAnchors
 {
 
     // MARK: Types
