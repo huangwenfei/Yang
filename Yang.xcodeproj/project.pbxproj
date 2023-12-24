@@ -38,7 +38,6 @@
 		237B755D2B35B11A00E904FB /* LayoutCommonRelationImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B755C2B35B11A00E904FB /* LayoutCommonRelationImpl.swift */; };
 		239DF2902B31CE7500960641 /* LayoutUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239DF28F2B31CE7500960641 /* LayoutUpdatable.swift */; };
 		23BBB2662B36C16C00CBADB0 /* LayoutVoidMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BBB2652B36C16C00CBADB0 /* LayoutVoidMaker.swift */; };
-		23BBB2682B36C2F900CBADB0 /* LayoutManagerBatchBuild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BBB2672B36C2F900CBADB0 /* LayoutManagerBatchBuild.swift */; };
 		23BBB26A2B36DD7200CBADB0 /* LayoutBatchTargetUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BBB2692B36DD7200CBADB0 /* LayoutBatchTargetUpdater.swift */; };
 		23BBB26D2B36E10800CBADB0 /* LayoutLinker+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BBB26C2B36E10800CBADB0 /* LayoutLinker+Update.swift */; };
 		23BBB26F2B36E1D400CBADB0 /* LayoutTarget+Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BBB26E2B36E1D400CBADB0 /* LayoutTarget+Update.swift */; };
@@ -168,7 +167,6 @@
 		239DF2832B31958E00960641 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 		239DF28F2B31CE7500960641 /* LayoutUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUpdatable.swift; sourceTree = "<group>"; };
 		23BBB2652B36C16C00CBADB0 /* LayoutVoidMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutVoidMaker.swift; sourceTree = "<group>"; };
-		23BBB2672B36C2F900CBADB0 /* LayoutManagerBatchBuild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutManagerBatchBuild.swift; sourceTree = "<group>"; };
 		23BBB2692B36DD7200CBADB0 /* LayoutBatchTargetUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchTargetUpdater.swift; sourceTree = "<group>"; };
 		23BBB26C2B36E10800CBADB0 /* LayoutLinker+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutLinker+Update.swift"; sourceTree = "<group>"; };
 		23BBB26E2B36E1D400CBADB0 /* LayoutTarget+Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutTarget+Update.swift"; sourceTree = "<group>"; };
@@ -604,7 +602,6 @@
 				23F392802B31944C006D7033 /* LayoutManager.swift */,
 				23F392812B31944C006D7033 /* LayoutManagerViewHierarchy.swift */,
 				23F392822B31944C006D7033 /* LayoutManagerBuild.swift */,
-				23BBB2672B36C2F900CBADB0 /* LayoutManagerBatchBuild.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -824,7 +821,6 @@
 				23BE2D872B341E7400D7FBC2 /* LayoutLinkerPositionAnchor.swift in Sources */,
 				23F392C32B31944C006D7033 /* LayoutConstraint.swift in Sources */,
 				23F392EF2B31944C006D7033 /* LayoutActivable.swift in Sources */,
-				23BBB2682B36C2F900CBADB0 /* LayoutManagerBatchBuild.swift in Sources */,
 				232328582B3339D000F1E715 /* LayoutAnchorTargetProtocol.swift in Sources */,
 				234AF5002B37E15F00472127 /* LayoutAnimateConfiguration.swift in Sources */,
 				23F392F72B31944C006D7033 /* LayoutBuilder.swift in Sources */,

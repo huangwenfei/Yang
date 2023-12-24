@@ -11,8 +11,7 @@ public struct LayoutBatchManager:
     LayoutManager,
     LayoutManagerViewHierarchy,
     LayoutBuilderAnchors,
-    LayoutManagerBuild,
-    LayoutManagerBatchBuild
+    LayoutManagerBuild
 {
     // MARK: Types
     public typealias MakerX = LayoutMakerVoidX
@@ -33,14 +32,8 @@ public struct LayoutBatchManager:
     public typealias Size = LayoutLinkerSize<MakerSize>
     public typealias SizeList = LayoutLinkerSizeList<MakerSizeList>
     
-    public typealias TargetBuilder = LayoutBatchTargetBuilder
-    public typealias LinkerBuilder = LayoutBatchLinkerBuilder
-    
-    public typealias TargetUpdater = LayoutBatchTargetUpdater
-    public typealias LinkerUpdater = LayoutBatchLinkUpdater
-    
-    public typealias Builder = LinkerBuilder
-    public typealias Updater = LinkerUpdater
+    public typealias Builder = LayoutBatchLinkerBuilder
+    public typealias Updater = LayoutBatchLinkUpdater
     
     // MARK: Properties
     private let oneself: LayoutItem
@@ -65,10 +58,4 @@ public struct LayoutBatchManager:
         return .init(maker: maker)
     }
     
-}
-
-extension LayoutBatchManager {
-    public func remove() {
-        removeConstraints()
-    }
 }
