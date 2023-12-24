@@ -57,6 +57,12 @@ public struct LayoutTargetLinkerManager:
     
 }
 
+extension LayoutTargetLinkerManager {
+    public func remove() {
+        removeConstraints()
+    }
+}
+
 #if DEBUG && false
 import UIKit
 

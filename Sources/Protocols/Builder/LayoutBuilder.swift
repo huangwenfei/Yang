@@ -12,6 +12,11 @@ public protocol LayoutBuilderPortocol {
     init(layoutItem: LayoutItem)
 }
 
+extension LayoutBuilderPortocol {
+    public func removeConstraints() {
+        layoutItem.constraints.forEach({ $0.deactive() })
+    }
+}
 
 public protocol LayoutBuilderConstraints: AnyObject {
     var constraints: [LayoutConstraint] { get set }

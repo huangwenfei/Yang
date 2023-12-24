@@ -57,6 +57,12 @@ public struct LayoutTargetManager:
     
 }
 
+extension LayoutTargetManager {
+    public func remove() {
+        removeConstraints()
+    }
+}
+
 #if DEBUG && false
 import UIKit
 

@@ -66,3 +66,9 @@ public struct LayoutBatchManager:
     }
     
 }
+
+extension LayoutBatchManager {
+    public func remove() {
+        removeConstraints()
+    }
+}

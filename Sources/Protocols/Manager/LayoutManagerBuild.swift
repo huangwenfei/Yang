@@ -86,7 +86,7 @@ extension LayoutManagerBuild {
     }
     
     public func remove() {
-        layoutItem.constraints.forEach({ $0.deactive() })
+        removeConstraints()
     }
     
 }
