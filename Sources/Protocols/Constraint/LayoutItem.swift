@@ -49,6 +49,8 @@ extension LayoutItem {
     
     // MARK: State For Sibling Or Parent Child
     internal func prepareAndSaveState() {
+        guard isCacheState == false else { return }
+        
         guard let view = self as? LayoutTypes.LayoutViewTarget else {
             return
         }
@@ -56,14 +58,21 @@ extension LayoutItem {
         state.autoresizingMask = view.translatesAutoresizingMaskIntoConstraints
         
         view.translatesAutoresizingMaskIntoConstraints = false
+        
+        isCacheState = true
     }
     
     internal func resetState() {
+        guard isCacheState == true else { return }
+        
         guard let view = self as? LayoutTypes.LayoutViewTarget else {
             return
         }
         
         view.translatesAutoresizingMaskIntoConstraints = state.autoresizingMask
+        
+        state = .init()
+        isCacheState = false
     }
     
     // MARK: Private
@@ -85,6 +94,28 @@ extension LayoutItem {
                 &CacheKeys.buildItems,
                 newValue,
                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+            )
+        }
+    }
+    
+    private var isCacheState: Bool {
+        get {
+            if let result = objc_getAssociatedObject(
+                self, &CacheKeys.isCacheState
+            ) as? Bool {
+                return result
+            } else {
+                let result = false
+                self.isCacheState = result
+                return result
+            }
+        }
+        set {
+            objc_setAssociatedObject(
+                self,
+                &CacheKeys.isCacheState,
+                newValue,
+                .OBJC_ASSOCIATION_ASSIGN
             )
         }
     }
@@ -118,5 +149,7 @@ fileprivate struct CacheKeys {
     static var buildItems: UInt8 = 0
     
     static var stateCache: UInt8 = 1
+    
+    static var isCacheState: UInt8 = 2
     
 }
