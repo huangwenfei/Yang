@@ -48,7 +48,14 @@ extension LayoutItem {
 //    }
     
     // MARK: State For Sibling Or Parent Child
-    internal func prepareAndSaveState() {
+    internal func closeAutoresizing() {
+        guard let view = self as? LayoutTypes.LayoutViewTarget else {
+            return
+        }
+        view.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    internal func saveState() {
         guard isCacheState == false else { return }
         
         guard let view = self as? LayoutTypes.LayoutViewTarget else {
@@ -56,8 +63,6 @@ extension LayoutItem {
         }
         
         state.autoresizingMask = view.translatesAutoresizingMaskIntoConstraints
-        
-        view.translatesAutoresizingMaskIntoConstraints = false
         
         isCacheState = true
     }

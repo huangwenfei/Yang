@@ -100,12 +100,14 @@ extension LayoutConstraint: LayoutConstraintInternalProtocol {
             guard let first = ($0.firstItem as? LayoutItem) else {
                 return
             }
-            first.prepareAndSaveState()
+            first.saveState()
+            first.closeAutoresizing()
             
             if let second = ($0.secondItem as? LayoutItem),
                second !== first.parent 
             {
-                second.prepareAndSaveState()
+                second.saveState()
+                second.closeAutoresizing()
             }
         })
         LayoutTypes.LayoutConstraintTarget.activate(constraints)
