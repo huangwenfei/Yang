@@ -101,13 +101,11 @@ extension LayoutConstraint: LayoutConstraintInternalProtocol {
                 return
             }
             first.saveState()
-            first.closeAutoresizing()
             
             if let second = ($0.secondItem as? LayoutItem),
                second !== first.parent 
             {
                 second.saveState()
-                second.closeAutoresizing()
             }
         })
         LayoutTypes.LayoutConstraintTarget.activate(constraints)

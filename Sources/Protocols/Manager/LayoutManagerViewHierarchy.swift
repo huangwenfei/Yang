@@ -15,6 +15,7 @@ extension LayoutManagerViewHierarchy {
     public func addToParent(_ parent: LayoutTypes.LayoutViewTarget) {
         if let view = layoutItem as? LayoutTypes.LayoutViewTarget {
             parent.addSubview(view)
+            view.saveState()
         }
         if let guide = layoutItem as? LayoutTypes.LayoutGuideTarget {
             parent.addLayoutGuide(guide)
@@ -27,6 +28,7 @@ extension LayoutManagerViewHierarchy {
         }
         if let child = child as? LayoutTypes.LayoutViewTarget {
             view.addSubview(child)
+            child.saveState()
         }
         if let child = child as? LayoutTypes.LayoutGuideTarget {
             view.addLayoutGuide(child)
@@ -36,6 +38,7 @@ extension LayoutManagerViewHierarchy {
     public func removeFromParent(_ parent: LayoutTypes.LayoutViewTarget) {
         if let view = layoutItem as? LayoutTypes.LayoutViewTarget {
             view.removeFromSuperview()
+            view.resetState()
         }
         if let guide = layoutItem as? LayoutTypes.LayoutGuideTarget {
             parent.removeLayoutGuide(guide)
@@ -48,6 +51,7 @@ extension LayoutManagerViewHierarchy {
         }
         if let child = child as? LayoutTypes.LayoutViewTarget {
             child.removeFromSuperview()
+            child.resetState()
         }
         if let child = child as? LayoutTypes.LayoutGuideTarget {
             view.removeLayoutGuide(child)
