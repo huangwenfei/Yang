@@ -65,6 +65,7 @@ class BaseUpdateViewController: UIViewController {
                     
                     /// animate
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        print("8 second later, redTop isActive: ", redTop.isActive)
                         yellowEdge.updater.offsetEdge(30).updateIfCan()
                         self.view.setNeedsUpdateConstraints()
                         
@@ -80,6 +81,20 @@ class BaseUpdateViewController: UIViewController {
                                 }
                             }
                         )
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            print("10 second later, redTop isActive: ", redTop.isActive)
+                            yellowEdge.updater
+                                .offsetEdge(8)
+                                .updateAnimateIfCan(configs: .init(
+                                    duration: 2,
+                                    delay: 2,
+                                    completion: {
+                                        if $0 == .end {
+                                            yellow.alpha = 0.7
+                                        }
+                                    }))
+                        }
                     }
                 }
             }

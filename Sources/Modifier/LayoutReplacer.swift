@@ -9,7 +9,7 @@ import Foundation
 
 public class LayoutReplacer:
     LayoutTargetProtocol,
-    LayoutConstraintProtocol,
+    LayoutOldConstraintProtocol,
     LayoutConstraintMultiplierImpl,
     LayoutConstraintOffsetImpl,
     LayoutConstraintPriorityImpl,
@@ -27,7 +27,7 @@ public class LayoutReplacer:
     
     // MARK: Properties
     /// The Old One , Real Start Point
-    private(set) var oldConstraint: LayoutConstraint
+    public private(set) var oldConstraint: LayoutConstraint
     /// Current Edit Constraint
     public private(set) var constraint: LayoutConstraint
     
@@ -64,10 +64,10 @@ public class LayoutReplacer:
 extension LayoutReplacer {
     
     public func active() {
-        LayoutConstraintUpdater.diffUpdate(
+        let shouldActive = LayoutConstraintUpdater.replaceIfCan(
             old: oldConstraint, new: constraint
         )
-        constraint.active()
+        if shouldActive { constraint.active() }
         oldConstraint = constraint.copy()
     }
     

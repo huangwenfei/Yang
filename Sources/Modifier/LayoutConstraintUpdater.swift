@@ -5,13 +5,39 @@
 //  Created by windy on 2023/12/23.
 //
 
-import Foundation
+import UIKit
 
 internal struct LayoutConstraintUpdater {
     
-    internal static func diffUpdate(old: LayoutConstraint, new: LayoutConstraint) {
+    internal static func updateIfCan(old constraint: LayoutConstraint, new: LayoutConstraint) {
+        guard let layoutItem = constraint.target.target else {
+            return
+        }
         
-        guard old.isActive else { return }
+        let formula = new.formula
+        let identifier = new.identifier
+        
+        constraint.constraints.forEach({ constraint in
+            let existings = layoutItem.constraints.reduce([], {
+                $0 + $1.constraints
+            })
+            
+            guard let update = existings.first(where: { $0 == constraint }) else {
+                return
+            }
+            
+            let isUsingFirst = update.secondAttribute == .notAnAttribute
+            let attribute = isUsingFirst ? update.firstAttribute : update.secondAttribute
+            update.constant = formula.constant.yangContantValue(by: attribute)
+            update.priority = formula.priority.yangPriorityUIValue
+            update.identifier = identifier
+            
+        })
+    }
+    
+    internal static func replaceIfCan(old: LayoutConstraint, new: LayoutConstraint) -> Bool {
+        
+        guard old.isActive else { return false }
         
         var shouldReactive = false
         
@@ -37,6 +63,26 @@ internal struct LayoutConstraintUpdater {
             
             old.updateIfCan()
         }
+        
+        return shouldReactive
+        
+    }
+    
+    internal static func animate(_ layoutItem: LayoutItem?, with configs: LayoutAnimateConfiguration) {
+        
+        if configs.setNeedsUpdateConstraints {
+            layoutItem?.parent?.setNeedsUpdateConstraints()
+        }
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: configs.duration,
+            delay: configs.delay,
+            options: configs.options,
+            animations: {
+                layoutItem?.parent?.layoutIfNeeded()
+            },
+            completion: configs.completion
+        )
         
     }
     

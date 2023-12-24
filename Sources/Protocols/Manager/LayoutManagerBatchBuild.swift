@@ -27,12 +27,13 @@ extension LayoutManagerBatchBuild {
         constraints.forEach({ $0.active() })
     }
     
-    public func update(_ updater: UpdateClosure) {
+    @discardableResult
+    public func update(_ updater: UpdateClosure) -> Bool {
         
         let oldConstraints = layoutItem.constraints
         
         guard !oldConstraints.isEmpty else {
-            return
+            return false
         }
         
         let constraints = makeConstraints(updater)
@@ -46,17 +47,22 @@ extension LayoutManagerBatchBuild {
             
             old.updateIfCan(by: constraint)
         })
+        
+        return true
     }
     
-    public func replace(_ maker: MakeClosure) {
+    @discardableResult
+    public func replace(_ maker: MakeClosure) -> Bool {
         let oldConstraints = layoutItem.constraints
         
         guard !oldConstraints.isEmpty else {
             self.make(maker)
-            return
+            return false
         }
         
         let constraints = makeConstraints(maker)
+        
+        var shouldActives = [Bool]()
         
         constraints.forEach({ constraint in
             guard let old = oldConstraints.first(where: {
@@ -65,10 +71,17 @@ extension LayoutManagerBatchBuild {
                 return
             }
             
-            LayoutConstraintUpdater.diffUpdate(old: old, new: constraint)
+            let shouldActive = LayoutConstraintUpdater.replaceIfCan(
+                old: old, new: constraint
+            )
+            shouldActives.append(shouldActive)
         })
         
-        constraints.forEach({ $0.active() })
+        zip(shouldActives, constraints).forEach({
+            if $0 { $1.active() }
+        })
+        
+        return true
     }
     
     public func remake(_ maker: MakeClosure) {
@@ -80,6 +93,24 @@ extension LayoutManagerBatchBuild {
         layoutItem.constraints.forEach({ $0.deactive() })
     }
     
+}
+
+extension LayoutManagerBatchBuild {
+    public func updateAnimate(_ updater: UpdateClosure, animateConfigs configs: LayoutAnimateConfiguration) {
+        
+        guard self.update(updater) else { return }
+        
+        LayoutConstraintUpdater.animate(layoutItem, with: configs)
+    
+    }
+    
+    public func replaceAnimate(_ maker: MakeClosure, animateConfigs configs: LayoutAnimateConfiguration) {
+        
+        guard self.replace(maker) else { return }
+        
+        LayoutConstraintUpdater.animate(layoutItem, with: configs)
+    
+    }
 }
 
 extension LayoutManagerBatchBuild {

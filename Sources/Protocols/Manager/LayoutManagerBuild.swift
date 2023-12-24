@@ -5,7 +5,7 @@
 //  Created by windy on 2023/12/19.
 //
 
-import Foundation
+import UIKit
 
 public protocol LayoutManagerBuild where Self: LayoutManager { 
     associatedtype Builder: LayoutBuilder
@@ -15,19 +15,20 @@ public protocol LayoutManagerBuild where Self: LayoutManager {
 extension LayoutManagerBuild {
     
     public typealias MakeClosure = (_ make: Builder) -> Void
-    public typealias UpdatClosure = (_ make: Updater) -> Void
+    public typealias UpdateClosure = (_ make: Updater) -> Void
     
     public func make(_ maker: MakeClosure) {
         let constraints = makeConstraints(maker)
         constraints.forEach({ $0.active() })
     }
     
-    public func update(_ updater: UpdatClosure) {
+    @discardableResult
+    public func update(_ updater: UpdateClosure) -> Bool {
         
         let oldConstraints = layoutItem.constraints
         
         guard !oldConstraints.isEmpty else {
-            return
+            return false
         }
         
         let constraints = makeConstraints(updater)
@@ -41,18 +42,23 @@ extension LayoutManagerBuild {
             
             old.updateIfCan(by: constraint)
         })
+        
+        return true
     
     }
     
-    public func replace(_ maker: MakeClosure) {
+    @discardableResult
+    public func replace(_ maker: MakeClosure) -> Bool {
         let oldConstraints = layoutItem.constraints
         
         guard !oldConstraints.isEmpty else {
             self.make(maker)
-            return
+            return false
         }
         
         let constraints = makeConstraints(maker)
+        
+        var shouldActives = [Bool]()
         
         constraints.forEach({ constraint in
             guard let old = oldConstraints.first(where: {
@@ -61,10 +67,17 @@ extension LayoutManagerBuild {
                 return
             }
             
-            LayoutConstraintUpdater.diffUpdate(old: old, new: constraint)
+            let shouldActive = LayoutConstraintUpdater.replaceIfCan(
+                old: old, new: constraint
+            )
+            shouldActives.append(shouldActive)
         })
         
-        constraints.forEach({ $0.active() })
+        zip(shouldActives, constraints).forEach({
+            if $0 { $1.active() }
+        })
+        
+        return true
     }
     
     public func remake(_ maker: MakeClosure) {
@@ -79,13 +92,35 @@ extension LayoutManagerBuild {
 }
 
 extension LayoutManagerBuild {
+    public func updateAnimate(_ updater: UpdateClosure, animateConfigs configs: LayoutAnimateConfiguration, isAnimated: Bool) {
+        
+        guard self.update(updater) else { return }
+        
+        if isAnimated {
+            LayoutConstraintUpdater.animate(layoutItem, with: configs)
+        }
+    
+    }
+    
+    public func replaceAnimate(_ maker: MakeClosure, animateConfigs configs: LayoutAnimateConfiguration, isAnimated: Bool) {
+        
+        guard self.replace(maker) else { return }
+        
+        if isAnimated {
+            LayoutConstraintUpdater.animate(layoutItem, with: configs)
+        }
+    
+    }
+}
+
+extension LayoutManagerBuild {
     internal func makeConstraints(_ maker: MakeClosure) -> [LayoutConstraint] {
         let builder = Builder(layoutItem: layoutItem)
         maker(builder)
         return compresion(builder.constraints)
     }
 
-    internal func makeConstraints(_ updater: UpdatClosure) -> [LayoutConstraint] {
+    internal func makeConstraints(_ updater: UpdateClosure) -> [LayoutConstraint] {
         let builder = Updater(layoutItem: layoutItem)
         updater(builder)
         return compresion(builder.constraints)

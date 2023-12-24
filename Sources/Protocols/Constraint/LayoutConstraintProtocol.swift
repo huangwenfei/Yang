@@ -51,6 +51,11 @@ extension LayoutConstraintProtocol {
 }
 
 
+public protocol LayoutOldConstraintProtocol where Self: LayoutConstraintProtocol {
+    var oldConstraint: LayoutConstraint { get }
+}
+
+
 internal protocol LayoutConstraintInternalProtocol {
     func buildConstraints()
     func activeConstraints()

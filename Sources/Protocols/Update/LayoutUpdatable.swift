@@ -9,4 +9,11 @@ import Foundation
 
 public protocol LayoutUpdatable {
     func updateIfCan()
+    func updateAnimateIfCan(configs: LayoutAnimateConfiguration, isAnimated: Bool)
+}
+
+extension LayoutUpdatable {
+    public func updateAnimateIfCan(configs: LayoutAnimateConfiguration) {
+        updateAnimateIfCan(configs: configs, isAnimated: true)
+    }
 }
