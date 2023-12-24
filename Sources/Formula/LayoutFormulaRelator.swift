@@ -138,7 +138,9 @@ extension LayoutFormulaRelator {
         if LayoutRelationship.isParent(
             oneself: constraint.target, parentIs: other.target
         ) {
-            return relationToParent(using: relate, from: constraint)
+            return relationToParent(
+                using: relate, from: constraint, anchor: other.anchor
+            )
         }
         
         return relationToSibliing(
