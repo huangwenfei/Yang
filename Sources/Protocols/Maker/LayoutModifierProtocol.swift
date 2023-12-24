@@ -9,4 +9,11 @@ import Foundation
 
 public protocol LayoutModifierProtocol:
     LayoutConstraintActiveImpl where Self.ActiveReturn == Void
-{ }
+{
+    
+    var updater: LayoutUpdater { get }
+    
+    associatedtype Replacer: LayoutConstraintProtocol
+    var replacer: Replacer { get }
+    
+}

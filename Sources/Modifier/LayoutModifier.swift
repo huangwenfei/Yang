@@ -7,6 +7,14 @@
 
 import Foundation
 
+#if false
+// https://swiftsenpai.com/swift/understanding-some-and-any/
+func modifierTest() {
+    var modifier: any LayoutModifierProtocol = LayoutModifierX(constraint: .init(target: .none, related: .none, formula: .init(relation: .equal, multiplier: 1, constant: 0, priority: 1000)))
+    modifier = LayoutModifierY(constraint: .init(target: .none, related: .none, formula: .init(relation: .equal, multiplier: 1, constant: 0, priority: 1000)))
+}
+#endif
+
 public class LayoutModifier<Replacer: LayoutConstraintProtocol>:
     LayoutActivable,
     LayoutConstraintProtocol,
