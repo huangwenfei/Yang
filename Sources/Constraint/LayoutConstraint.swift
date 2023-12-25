@@ -92,6 +92,10 @@ extension LayoutConstraint: LayoutConstraintInternalProtocol {
     }
     
     internal func removeConstraints() {
+        constraints.forEach({
+            $0.setValue(nil, forKeyPath: #keyPath(NSLayoutConstraint.firstItem))
+            $0.setValue(nil, forKeyPath: #keyPath(NSLayoutConstraint.secondItem))
+        })
         constraints = []
     }
     
