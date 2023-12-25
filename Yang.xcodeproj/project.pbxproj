@@ -49,6 +49,8 @@
 		23BE2D922B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D912B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift */; };
 		23BE2D962B3455C700D7FBC2 /* LayoutUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D952B3455C700D7FBC2 /* LayoutUpdater.swift */; };
 		23BE2D982B34712300D7FBC2 /* LayoutCompressionDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BE2D972B34712300D7FBC2 /* LayoutCompressionDict.swift */; };
+		23C4307C2B395C0E002415CB /* LayoutBatchListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C4307B2B395C0E002415CB /* LayoutBatchListManager.swift */; };
+		23C4307E2B395C26002415CB /* LayoutBatchListLinkUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C4307D2B395C26002415CB /* LayoutBatchListLinkUpdater.swift */; };
 		23F391702B3191C5006D7033 /* Yang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F391652B3191C5006D7033 /* Yang.framework */; };
 		23F392AB2B31944C006D7033 /* LayoutParentMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392412B31944C006D7033 /* LayoutParentMark.swift */; };
 		23F392AC2B31944C006D7033 /* LayoutSizeMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392422B31944C006D7033 /* LayoutSizeMark.swift */; };
@@ -178,6 +180,8 @@
 		23BE2D912B34210800D7FBC2 /* LayoutLinkerSizeListAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutLinkerSizeListAnchor.swift; sourceTree = "<group>"; };
 		23BE2D952B3455C700D7FBC2 /* LayoutUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutUpdater.swift; sourceTree = "<group>"; };
 		23BE2D972B34712300D7FBC2 /* LayoutCompressionDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutCompressionDict.swift; sourceTree = "<group>"; };
+		23C4307B2B395C0E002415CB /* LayoutBatchListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchListManager.swift; sourceTree = "<group>"; };
+		23C4307D2B395C26002415CB /* LayoutBatchListLinkUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchListLinkUpdater.swift; sourceTree = "<group>"; };
 		23F391652B3191C5006D7033 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3916F2B3191C5006D7033 /* YangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3923D2B31944C006D7033 /* YangTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YangTests.swift; sourceTree = "<group>"; };
@@ -508,6 +512,7 @@
 				23F392572B31944C006D7033 /* LayoutTargetManager.swift */,
 				23F392582B31944C006D7033 /* LayoutTargetLinkerManager.swift */,
 				230B43A62B3686FE00436A10 /* LayoutBatchManager.swift */,
+				23C4307B2B395C0E002415CB /* LayoutBatchListManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				230B43A42B3686C500436A10 /* LayoutBatchLinkerBuilder.swift */,
 				23BBB2692B36DD7200CBADB0 /* LayoutBatchTargetUpdater.swift */,
 				23BBB2702B36E23100CBADB0 /* LayoutBatchLinkUpdater.swift */,
+				23C4307D2B395C26002415CB /* LayoutBatchListLinkUpdater.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -896,6 +902,7 @@
 				23BE2D962B3455C700D7FBC2 /* LayoutUpdater.swift in Sources */,
 				23F392EA2B31944C006D7033 /* LayoutPositionParameter.swift in Sources */,
 				232328452B32DBE600F1E715 /* LayoutConstraintMultiplier.swift in Sources */,
+				23C4307C2B395C0E002415CB /* LayoutBatchListManager.swift in Sources */,
 				23F392EB2B31944C006D7033 /* LayoutContantParameter.swift in Sources */,
 				239DF2902B31CE7500960641 /* LayoutUpdatable.swift in Sources */,
 				23F392B82B31944C006D7033 /* UIView+Layout.swift in Sources */,
@@ -915,6 +922,7 @@
 				23F392E22B31944C006D7033 /* LayoutPositionRelation.swift in Sources */,
 				23F392AF2B31944C006D7033 /* LayoutRelation.swift in Sources */,
 				23F392D92B31944C006D7033 /* LayoutContantPointValue.swift in Sources */,
+				23C4307E2B395C26002415CB /* LayoutBatchListLinkUpdater.swift in Sources */,
 				23F392F02B31944C006D7033 /* LayoutAnchors.swift in Sources */,
 				23BBB26D2B36E10800CBADB0 /* LayoutLinker+Update.swift in Sources */,
 				230B43A92B368FC900436A10 /* LayoutConstraintUpdater.swift in Sources */,
