@@ -45,6 +45,16 @@ extension LayoutManagerViewHierarchy {
         }
     }
     
+    public func removeFromParent() {
+        if let view = layoutItem as? LayoutTypes.LayoutViewTarget {
+            view.removeFromSuperview()
+            view.resetState()
+        }
+        if let guide = layoutItem as? LayoutTypes.LayoutGuideTarget {
+            guide.parent?.removeLayoutGuide(guide)
+        }
+    }
+    
     public func removeChild(_ child: LayoutItem) {
         guard let view = layoutItem as? LayoutTypes.LayoutViewTarget else {
             return
