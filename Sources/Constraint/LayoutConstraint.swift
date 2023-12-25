@@ -92,43 +92,23 @@ extension LayoutConstraint: LayoutConstraintInternalProtocol {
     }
     
     internal func removeConstraints() {
-        constraints.forEach({
-            $0.setValue(nil, forKeyPath: #keyPath(NSLayoutConstraint.firstItem))
-            $0.setValue(nil, forKeyPath: #keyPath(NSLayoutConstraint.secondItem))
-        })
         constraints = []
     }
     
     internal func activeConstraints() {
-        constraints.forEach({
-            guard let first = ($0.firstItem as? LayoutItem) else {
-                return
-            }
-            first.saveState()
-            
-            if let second = ($0.secondItem as? LayoutItem),
-               second !== first.parent 
-            {
-                second.saveState()
-            }
-        })
+        target?.saveState()
+        if related.target !== target?.parent {
+            related.target?.saveState()
+        }
         LayoutTypes.LayoutConstraintTarget.activate(constraints)
         isActive = true
     }
     
     internal func deactiveConstraints() {
-        constraints.forEach({
-            guard let first = ($0.firstItem as? LayoutItem) else {
-                return
-            }
-            first.resetState()
-            
-            if let second = ($0.secondItem as? LayoutItem),
-               second !== first.parent
-            {
-                second.resetState()
-            }
-        })
+        target?.resetState()
+        if related.target !== target?.parent {
+            related.target?.resetState()
+        }
         LayoutTypes.LayoutConstraintTarget.deactivate(constraints)
         isActive = false
     }
