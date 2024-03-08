@@ -7,6 +7,8 @@
 
 import UIKit
 
+public typealias BatchMaker = LayoutBatchManager.Builder
+
 public struct LayoutTypes {
     
     public typealias LayoutViewTarget = UIView
