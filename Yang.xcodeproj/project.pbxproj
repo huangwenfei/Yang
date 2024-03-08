@@ -52,6 +52,7 @@
 		23C4307E2B395C26002415CB /* LayoutBatchListLinkUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C4307D2B395C26002415CB /* LayoutBatchListLinkUpdater.swift */; };
 		23DAD65D2B9AEAF800CC66A9 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAD65C2B9AEAF800CC66A9 /* Collection+Extensions.swift */; };
 		23DAD65F2B9AF3D700CC66A9 /* LayoutBatchListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DAD65E2B9AF3D700CC66A9 /* LayoutBatchListManager.swift */; };
+		23DAD6682B9B1F0100CC66A9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 23DAD6672B9B1F0100CC66A9 /* LICENSE */; };
 		23F391702B3191C5006D7033 /* Yang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F391652B3191C5006D7033 /* Yang.framework */; };
 		23F392AB2B31944C006D7033 /* LayoutParentMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392412B31944C006D7033 /* LayoutParentMark.swift */; };
 		23F392AC2B31944C006D7033 /* LayoutSizeMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F392422B31944C006D7033 /* LayoutSizeMark.swift */; };
@@ -186,6 +187,7 @@
 		23DAD65E2B9AF3D700CC66A9 /* LayoutBatchListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchListManager.swift; sourceTree = "<group>"; };
 		23DAD6622B9B051500CC66A9 /* Yang.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yang.podspec; sourceTree = SOURCE_ROOT; };
 		23DAD6632B9B11E500CC66A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		23DAD6672B9B1F0100CC66A9 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		23F391652B3191C5006D7033 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3916F2B3191C5006D7033 /* YangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3923D2B31944C006D7033 /* YangTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YangTests.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			children = (
 				239DF2832B31958E00960641 /* Package.swift */,
 				23DAD6622B9B051500CC66A9 /* Yang.podspec */,
+				23DAD6672B9B1F0100CC66A9 /* LICENSE */,
 			);
 			path = Deployment;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23DAD6682B9B1F0100CC66A9 /* LICENSE in Resources */,
 				23F392B32B31944C006D7033 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
