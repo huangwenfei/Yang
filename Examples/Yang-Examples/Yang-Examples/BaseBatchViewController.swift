@@ -89,23 +89,23 @@ class BatchUpdateViewController: UIViewController {
         purple.yangbatch.make { make in
             make.left.right
                 .equalToParent()
-                .identifier("green-left-right")
+                .identifier("purple-left-right")
                 .offsetEdge(16)
             make.top.bottom
                 .equalToParent()
                 .multiplier(by: 0.25)
-                .identifier("green-top-bottom")
+                .identifier("purple-top-bottom")
                 .offsetEdge(16)
         }
         
         brown.yangbatch.make { make in
             make.top
                 .equal(to: purple.yangbatch.bottom)
-                .identifier("red.top = green.bottom")
+                .identifier("brown.top = purple.bottom")
                 .offset(20)
             make.leading.trailing
                 .equal(to: purple)
-                .identifier("red.leading.trailing = green.leading.trailing")
+                .identifier("brown.leading.trailing = purple.leading.trailing")
             make.height
                 .equal(to: purple)
                 .multiplier(by: 2)

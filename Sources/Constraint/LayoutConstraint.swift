@@ -96,19 +96,19 @@ extension LayoutConstraint: LayoutConstraintInternalProtocol {
     }
     
     internal func activeConstraints() {
-        target?.saveState()
-        if related.target !== target?.parent {
-            related.target?.saveState()
-        }
+//        target?.saveState()
+//        if related.target !== target?.parent {
+//            related.target?.saveState()
+//        }
         LayoutTypes.LayoutConstraintTarget.activate(constraints)
         isActive = true
     }
     
     internal func deactiveConstraints() {
-        target?.resetState()
-        if related.target !== target?.parent {
-            related.target?.resetState()
-        }
+//        target?.resetState()
+//        if related.target !== target?.parent {
+//            related.target?.resetState()
+//        }
         LayoutTypes.LayoutConstraintTarget.deactivate(constraints)
         isActive = false
     }

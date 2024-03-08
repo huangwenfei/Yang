@@ -68,3 +68,35 @@ extension LayoutManagerViewHierarchy {
         }
     }
 }
+
+extension LayoutManagerViewHierarchy {
+    
+    public func addChilds(_ childs: [LayoutItem]) {
+        childs.forEach({ addChild($0) })
+    }
+    
+    public func removeChilds(_ childs: [LayoutItem]) {
+        childs.forEach({ removeChild($0) })
+    }
+    
+}
+
+extension LayoutManagerViewHierarchy {
+    
+    public func saveState() {
+        layoutItem.saveState()
+    }
+    
+    public func resetState() {
+        layoutItem.resetState()
+    }
+    
+    public func saveChildStates(_ childs: [LayoutItem]) {
+        childs.forEach({ $0.saveState() })
+    }
+    
+    public func resetChildStates(_ childs: [LayoutItem]) {
+        childs.forEach({ $0.resetState() })
+    }
+    
+}

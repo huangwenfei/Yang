@@ -184,6 +184,8 @@
 		23C4307D2B395C26002415CB /* LayoutBatchListLinkUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchListLinkUpdater.swift; sourceTree = "<group>"; };
 		23DAD65C2B9AEAF800CC66A9 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		23DAD65E2B9AF3D700CC66A9 /* LayoutBatchListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchListManager.swift; sourceTree = "<group>"; };
+		23DAD6622B9B051500CC66A9 /* Yang.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yang.podspec; sourceTree = SOURCE_ROOT; };
+		23DAD6632B9B11E500CC66A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		23F391652B3191C5006D7033 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3916F2B3191C5006D7033 /* YangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23F3923D2B31944C006D7033 /* YangTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YangTests.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				239DF2832B31958E00960641 /* Package.swift */,
+				23DAD6622B9B051500CC66A9 /* Yang.podspec */,
 			);
 			path = Deployment;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				23F392A92B31944C006D7033 /* Yang.docc */,
+				23DAD6632B9B11E500CC66A9 /* README.md */,
 			);
 			path = Documentation;
 			sourceTree = "<group>";
