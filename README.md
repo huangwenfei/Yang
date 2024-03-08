@@ -1,6 +1,6 @@
 
-Yang 是根据 [SnapKit](https://github.com/SnapKit/SnapKit) 修改而来的。
-Yang 目前只支持 iOS 。
+- Yang 是根据 [SnapKit](https://github.com/SnapKit/SnapKit) 修改而来的。
+- Yang 目前只支持 iOS 。
 
 ## 内容
 
@@ -42,8 +42,8 @@ someLayoutItem.yang.removeFromParent()
 
 ```
 
-`addToParent` 内部会自动保存 `translatesAutoresizingMaskIntoConstraints` 的状态。
-`removeFromParent` 内部会重置之前保存的 `translatesAutoresizingMaskIntoConstraints` 的状态。
+- `addToParent` 内部会自动保存 `translatesAutoresizingMaskIntoConstraints` 的状态。
+- `removeFromParent` 内部会重置之前保存的 `translatesAutoresizingMaskIntoConstraints` 的状态。
 
 当然也可以手动设置：
 ```swift
@@ -163,8 +163,8 @@ DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 
 --- 
 
-Yang is changed according to the [SnapKit](https://github.com/SnapKit/SnapKit).
-Yang currently only supports iOS.
+- Yang is changed according to the [SnapKit](https://github.com/SnapKit/SnapKit).
+- Yang currently only supports iOS.
 
 ## Content
 
@@ -206,8 +206,8 @@ someLayoutItem.yang.removeFromParent()
 
 ```
 
-`addToParent` internal will automatically save `translatesAutoresizingMaskIntoConstraints` state.
-`removeFromParent` internal will reset before save `translatesAutoresizingMaskIntoConstraints` state.
+- `addToParent` internal will automatically save `translatesAutoresizingMaskIntoConstraints` state.
+- `removeFromParent` internal will reset before save `translatesAutoresizingMaskIntoConstraints` state.
 
 You can also set it manually:
 ```swift
