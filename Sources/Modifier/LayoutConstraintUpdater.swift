@@ -68,21 +68,39 @@ internal struct LayoutConstraintUpdater {
         
     }
     
-    internal static func animate(_ layoutItem: LayoutItem?, with configs: LayoutAnimateConfiguration) {
+    internal static func animate(_ layoutItem: LayoutItem?, with configs: LayoutAnimateConfiguration, isAnimated: Bool) {
         
         if configs.setNeedsUpdateConstraints {
             layoutItem?.parent?.setNeedsUpdateConstraints()
         }
         
-        UIViewPropertyAnimator.runningPropertyAnimator(
-            withDuration: configs.duration,
-            delay: configs.delay,
-            options: configs.options,
-            animations: {
-                layoutItem?.parent?.layoutIfNeeded()
-            },
-            completion: configs.completion
-        )
+        if isAnimated {
+            
+            UIViewPropertyAnimator.runningPropertyAnimator(
+                withDuration: configs.duration,
+                delay: configs.delay,
+                options: configs.options,
+                animations: {
+                    layoutItem?.parent?.layoutIfNeeded()
+                },
+                completion: configs.completion
+            )
+            
+        } else {
+            layoutItem?.parent?.layoutIfNeeded()
+        }
+        
+    }
+    
+    internal static func animate(_ layoutItem: LayoutItem?, with configs: LayoutAnimatorConfiguration) {
+        
+        configs.animator.addAnimations {
+            if configs.setNeedsUpdateConstraints {
+                layoutItem?.parent?.setNeedsUpdateConstraints()
+            }
+            
+            layoutItem?.parent?.layoutIfNeeded()
+        }
         
     }
     

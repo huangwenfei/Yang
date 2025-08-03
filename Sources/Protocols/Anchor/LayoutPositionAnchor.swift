@@ -13,6 +13,9 @@ public protocol LayoutPositionAnchor {
     associatedtype PositionX: LayoutTargetProtocol
     associatedtype PositionY: LayoutTargetProtocol
     
+//    associatedtype PositionDiretionX: LayoutTargetProtocol
+//    associatedtype PositionDiretionY: LayoutTargetProtocol
+    
     /// - Tag: Position
     var left: PositionX { get }
     var right: PositionX { get }

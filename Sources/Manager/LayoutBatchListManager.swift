@@ -103,9 +103,7 @@ public final class LayoutBatchListManager<Collection> where Collection: Swift.Co
                 continue
             }
             
-            if isAnimated {
-                LayoutConstraintUpdater.animate(layoutItem, with: configs)
-            }
+            LayoutConstraintUpdater.animate(layoutItem, with: configs, isAnimated: isAnimated)
         }
     
     }
@@ -119,9 +117,7 @@ public final class LayoutBatchListManager<Collection> where Collection: Swift.Co
                 continue
             }
             
-            if isAnimated {
-                LayoutConstraintUpdater.animate(layoutItem, with: configs)
-            }
+            LayoutConstraintUpdater.animate(layoutItem, with: configs, isAnimated: isAnimated)
         }
     
     }

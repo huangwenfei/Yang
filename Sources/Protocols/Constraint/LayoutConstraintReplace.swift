@@ -22,11 +22,9 @@ extension LayoutConstraintReplaceImpl where Self: LayoutOldConstraintProtocol {
         
         replaceIfCan()
         
-        if isAnimated {
-            LayoutConstraintUpdater.animate(
-                constraint.target.target, with: configs
-            )
-        }
+        LayoutConstraintUpdater.animate(
+            constraint.target.target, with: configs, isAnimated: isAnimated
+        )
     }
     
 }

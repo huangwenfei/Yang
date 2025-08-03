@@ -92,23 +92,41 @@ extension LayoutManagerBuild {
 }
 
 extension LayoutManagerBuild {
-    public func updateAnimate(_ updater: UpdateClosure, animateConfigs configs: LayoutAnimateConfiguration, isAnimated: Bool) {
+    public func updateAnimate(_ updater: UpdateClosure, animateConfigs configs: LayoutAnimateConfiguration, isAnimated: Bool = true) {
         
         guard self.update(updater) else { return }
         
-        if isAnimated {
-            LayoutConstraintUpdater.animate(layoutItem, with: configs)
-        }
+        LayoutConstraintUpdater.animate(layoutItem, with: configs, isAnimated: isAnimated)
     
     }
     
-    public func replaceAnimate(_ maker: MakeClosure, animateConfigs configs: LayoutAnimateConfiguration, isAnimated: Bool) {
+    public func replaceAnimate(_ maker: MakeClosure, animateConfigs configs: LayoutAnimateConfiguration, isAnimated: Bool = true) {
         
         guard self.replace(maker) else { return }
         
-        if isAnimated {
-            LayoutConstraintUpdater.animate(layoutItem, with: configs)
+        LayoutConstraintUpdater.animate(layoutItem, with: configs, isAnimated: isAnimated)
+    
+    }
+}
+
+extension LayoutManagerBuild {
+    public func updateAnimate(_ updater: @escaping UpdateClosure, animatorConfigs configs: LayoutAnimatorConfiguration) {
+        
+        configs.animator.addAnimations {
+            self.update(updater)
         }
+        
+        LayoutConstraintUpdater.animate(layoutItem, with: configs)
+    
+    }
+    
+    public func replaceAnimate(_ maker: @escaping MakeClosure, animatorConfigs configs: LayoutAnimatorConfiguration) {
+        
+        configs.animator.addAnimations {
+            self.replace(maker)
+        }
+        
+        LayoutConstraintUpdater.animate(layoutItem, with: configs)
     
     }
 }

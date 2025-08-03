@@ -22,6 +22,27 @@ extension LayoutManagerViewHierarchy {
         }
     }
     
+    public func insertToParent(_ parent: LayoutTypes.LayoutViewTarget, at index: Int) {
+        if let view = layoutItem as? LayoutTypes.LayoutViewTarget {
+            parent.insertSubview(view, at: index)
+            view.saveState()
+        }
+    }
+    
+    public func insertToParent(_ parent: LayoutTypes.LayoutViewTarget, below: LayoutTypes.LayoutViewTarget) {
+        if let view = layoutItem as? LayoutTypes.LayoutViewTarget {
+            parent.insertSubview(view, belowSubview: below)
+            view.saveState()
+        }
+    }
+    
+    public func insertToParent(_ parent: LayoutTypes.LayoutViewTarget, above: LayoutTypes.LayoutViewTarget) {
+        if let view = layoutItem as? LayoutTypes.LayoutViewTarget {
+            parent.insertSubview(view, aboveSubview: above)
+            view.saveState()
+        }
+    }
+    
     public func addChild(_ child: LayoutItem) {
         guard let view = layoutItem as? LayoutTypes.LayoutViewTarget else {
             return

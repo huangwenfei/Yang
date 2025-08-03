@@ -50,3 +50,64 @@ public struct LayoutAnimateConfiguration: CustomReflectable {
     
 }
 
+public struct LayoutAnimatorConfiguration: CustomReflectable {
+    
+    // MARK: Properties
+    public var setNeedsUpdateConstraints: Bool
+    public weak var animator: UIViewPropertyAnimator!
+    
+    // MARK: Init
+    public init(
+        setNeedsUpdateConstraints: Bool = false,
+        animator: UIViewPropertyAnimator
+    ) {
+        
+        self.setNeedsUpdateConstraints = setNeedsUpdateConstraints
+        self.animator = animator
+    }
+    
+    // MARK: CustomReflectable
+    public typealias ReflectableElement = (label: String?, value: Any)
+    public func elements() -> [ReflectableElement] {
+        [
+            ("setNeedsUpdateConstraints", setNeedsUpdateConstraints),
+            ("animator", String(describing: animator)),
+            ("animator.duration", String(describing: animator?.duration))
+        ]
+    }
+    
+    public var customMirror: Mirror {
+        .init(self, children: elements(), displayStyle: .class)
+    }
+    
+    // MARK: Control
+    public func start() {
+        animator?.startAnimation()
+    }
+    
+    public func pause() {
+        animator?.pauseAnimation()
+    }
+    
+    public func stop() {
+        animator?.stopAnimation(true)
+    }
+    
+    public func finish() {
+        animator?.finishAnimation(at: .end)
+    }
+    
+    public func progress(_ value: CGFloat) {
+        let value = min(max(value, 0), 1)
+        pause()
+        animator?.fractionComplete = value
+    }
+    
+    public func restart() {
+        stop()
+        progress(0)
+        start()
+    }
+    
+}
+

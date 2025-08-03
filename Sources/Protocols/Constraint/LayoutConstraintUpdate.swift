@@ -23,11 +23,9 @@ extension LayoutConstraintUpdateImpl where Self: LayoutConstraintProtocol {
             old: constraint, new: constraint
         )
         
-        if isAnimated {
-            LayoutConstraintUpdater.animate(
-                constraint.target.target, with: configs
-            )
-        }
+        LayoutConstraintUpdater.animate(
+            constraint.target.target, with: configs, isAnimated: isAnimated
+        )
     }
     
     internal func updateIfCan(by new: LayoutConstraint) {
