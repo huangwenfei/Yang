@@ -16,22 +16,34 @@ class ReadmeExampleController: UIViewController {
         view.backgroundColor = .darkGray
         
 //        base(view)
-        baseUpdate(view)
+//        baseUpdate(view)
 //        batch(view)
-//        batchUpdate(view)
+        batchUpdate(view)
     }
     
     func base(_ parentView: UIView) {
+        
         let yellow = YellowView()
         yellow.yang.addToParent(parentView)
 
-        #if false
+//        base(target: yellow)
+//        base1(target: yellow)
+        
+        let red = RedView()
+        red.yang.addToParent(parentView)
+        
+        base2(target: yellow, other: red)
+        
+    }
+    
+    func base(target yellow: UIView) {
         yellow.yang.edge
             .equalToParent()
             .identifier("yellow-edge")
             .active()
-            
-        #else
+    }
+    
+    func base1(target yellow: UIView) {
         yellow.yang.left.equalToParent().identifier("yellow-left").offset(16).active()
         yellow.yang.right.equalToParent().identifier("yellow-right").offset(-16).active()
         yellow.yang.top.equalToParent().identifier("yellow-top").offset(16).active()
@@ -40,8 +52,24 @@ class ReadmeExampleController: UIViewController {
             .equal(to: 50)
             .identifier("yellow-height")
             .active()
-        #endif
     }
+    
+    func base2(target yellow: UIView, other red: UIView) {
+        yellow.yang.left.equalToParent().identifier("yellow-left").offset(16).active()
+        yellow.yang.right.equalToParent().identifier("yellow-right").offset(-16).active()
+        yellow.yang.top.equalToParent().identifier("yellow-top").offset(16).active()
+
+        yellow.yang.height
+            .equal(to: 50)
+            .identifier("yellow-height")
+            .active()
+        
+        red.yang.top.equal(to: yellow.yang.bottom).offset(16).identifier("red-top = yellow.bottom").active()
+        red.yang.height.equal(to: yellow).identifier("red-height = yellow.height").active()
+        red.yanglink.leading.trailing.equal(to: yellow).identifier("red-leading-trailing = yellow-leading-trailing").active()
+        
+    }
+    
     
     func baseUpdate(_ parentView: UIView) {
         let yellow = YellowView()
@@ -57,8 +85,10 @@ class ReadmeExampleController: UIViewController {
             .active()
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            yellowH.updater.offset(280).active()
-            self.view.setNeedsUpdateConstraints()
+            /// set new value
+            yellowH.updater.offset(280)
+            /// update it
+            yellowH.updater.updateAnimateIfCan(configs: .init())
         }
     }
     
@@ -84,19 +114,13 @@ class ReadmeExampleController: UIViewController {
             make.top.equalToParent().identifier("yellow-top").offset(16)
             make.height.equal(to: 50).identifier("yellow-height")
         }
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            yellow.yangbatch.remake { make in
-                make.left.right
-                    .equalToParent()
-                    .offsetEdge(40)
-                make.top
-                    .equalToParent()
-                    .offset(100)
-                make.bottom
-                    .equal(to: parentView.yangbatch.bottom)
-                    .offsetEdge(50)
-            }
+            yellow.yangbatch.updateAnimate({ make in
+                make.left.offsetEdge(140)
+                make.right.offsetEdge(140)
+                make.top.offset(100)
+            }, animateConfigs: .init())
         }
     }
     

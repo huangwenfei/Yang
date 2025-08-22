@@ -161,6 +161,13 @@
 		234B28492B32C5E700B93BB6 /* LayoutMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutMaker.swift; sourceTree = "<group>"; };
 		234B284B2B32C67D00B93BB6 /* LayoutConstraintProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstraintProtocol.swift; sourceTree = "<group>"; };
 		235105BB2B35CE79008631A8 /* LayoutSimpleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSimpleUpdater.swift; sourceTree = "<group>"; };
+		235D70462E588B8500AAE170 /* Total.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Total.png; sourceTree = "<group>"; };
+		235D70482E5891FE00AAE170 /* Base1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Base1.png; sourceTree = "<group>"; };
+		235D70492E58937300AAE170 /* Base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Base.png; sourceTree = "<group>"; };
+		235D704A2E5894AB00AAE170 /* Base2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Base2.png; sourceTree = "<group>"; };
+		235D704B2E589B6900AAE170 /* Batch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Batch.png; sourceTree = "<group>"; };
+		235D704C2E589B7D00AAE170 /* Base-Update.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Base-Update.gif"; sourceTree = "<group>"; };
+		235D704D2E58AC4800AAE170 /* Batch-Update.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Batch-Update.gif"; sourceTree = "<group>"; };
 		237B75492B357E4600E904FB /* LayoutModifier+Limit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutModifier+Limit.swift"; sourceTree = "<group>"; };
 		237B754B2B357E6F00E904FB /* LayoutMaker+Limit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutMaker+Limit.swift"; sourceTree = "<group>"; };
 		237B75532B358E9C00E904FB /* LayoutReplacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutReplacer.swift; sourceTree = "<group>"; };
@@ -185,7 +192,7 @@
 		23C4307D2B395C26002415CB /* LayoutBatchListLinkUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchListLinkUpdater.swift; sourceTree = "<group>"; };
 		23DAD65C2B9AEAF800CC66A9 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		23DAD65E2B9AF3D700CC66A9 /* LayoutBatchListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutBatchListManager.swift; sourceTree = "<group>"; };
-		23DAD6622B9B051500CC66A9 /* Yang.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yang.podspec; sourceTree = SOURCE_ROOT; };
+		23DAD6622B9B051500CC66A9 /* Yang.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Yang.podspec; sourceTree = SOURCE_ROOT; };
 		23DAD6632B9B11E500CC66A9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		23DAD6672B9B1F0100CC66A9 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		23F391652B3191C5006D7033 /* Yang.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Yang.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,6 +311,20 @@
 			path = Animated;
 			sourceTree = "<group>";
 		};
+		235D70452E588B5900AAE170 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				235D70462E588B8500AAE170 /* Total.png */,
+				235D70492E58937300AAE170 /* Base.png */,
+				235D70482E5891FE00AAE170 /* Base1.png */,
+				235D704A2E5894AB00AAE170 /* Base2.png */,
+				235D704C2E589B7D00AAE170 /* Base-Update.gif */,
+				235D704B2E589B6900AAE170 /* Batch.png */,
+				235D704D2E58AC4800AAE170 /* Batch-Update.gif */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		237B754D2B357E8700E904FB /* Maker */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +405,7 @@
 			children = (
 				239DF2822B31957B00960641 /* Deployment */,
 				23F392A82B31944C006D7033 /* Documentation */,
+				235D70452E588B5900AAE170 /* Resources */,
 				23F392A62B31944C006D7033 /* Supporting Files */,
 				23F3923E2B31944C006D7033 /* Sources */,
 				23F3923C2B31944C006D7033 /* Tests */,
