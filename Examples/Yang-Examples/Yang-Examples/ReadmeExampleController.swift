@@ -117,8 +117,7 @@ class ReadmeExampleController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             yellow.yangbatch.updateAnimate({ make in
-                make.left.offsetEdge(140)
-                make.right.offsetEdge(140)
+                make.left.right.offsetEdge(140)
                 make.top.offset(100)
             }, animateConfigs: .init())
         }

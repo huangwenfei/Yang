@@ -33,15 +33,17 @@ extension LayoutManagerBuild {
         
         let constraints = makeConstraints(updater)
         
-        constraints.forEach({ constraint in
-            guard let old = oldConstraints.first(where: {
-                $0.anchor == constraint.anchor
-            }) else {
+        oldConstraints.forEach { constraint in
+            guard
+                let new = constraints.first(where: {
+                    ($0.anchor & constraint.anchor).isEmpty == false
+                })
+            else {
                 return
             }
             
-            old.updateIfCan(by: constraint)
-        })
+            constraint.updateIfCan(by: new)
+        }
         
         return true
     
@@ -49,6 +51,7 @@ extension LayoutManagerBuild {
     
     @discardableResult
     public func replace(_ maker: MakeClosure) -> Bool {
+        
         let oldConstraints = layoutItem.constraints
         
         guard !oldConstraints.isEmpty else {
@@ -60,15 +63,17 @@ extension LayoutManagerBuild {
         
         var shouldActives = [Bool]()
         
-        constraints.forEach({ constraint in
-            guard let old = oldConstraints.first(where: {
-                $0.anchor == constraint.anchor
-            }) else {
+        oldConstraints.forEach({ constraint in
+            guard
+                let new = oldConstraints.first(where: {
+                    ($0.anchor & constraint.anchor).isEmpty == false
+                })
+            else {
                 return
             }
             
             let shouldActive = LayoutConstraintUpdater.replaceIfCan(
-                old: old, new: constraint
+                old: constraint, new: new
             )
             shouldActives.append(shouldActive)
         })

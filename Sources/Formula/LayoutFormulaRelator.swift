@@ -178,7 +178,7 @@ extension LayoutFormulaRelator {
         constant: LayoutContantValue
     ) -> Maker {
         
-        constraint.related.anchor = .none
+        constraint.related.anchor = constraint.anchor // .none
         constraint.related.target = nil
         
         constraint.formula.relation = relate

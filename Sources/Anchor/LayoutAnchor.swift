@@ -339,6 +339,10 @@ internal func + (left: LayoutAnchor, right: LayoutAnchor) -> LayoutAnchor {
     left.union(right)
 }
 
+internal func & (left: LayoutAnchor, right: LayoutAnchor) -> LayoutAnchor {
+    left.intersection(right)
+}
+
 internal func += (left: inout LayoutAnchor, right: LayoutAnchor) {
     left.formUnion(right)
 }

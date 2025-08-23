@@ -15,6 +15,12 @@ class BaseViewController: UIViewController {
         
         view.backgroundColor = .darkGray
         
+        base()
+//        baseBugs()
+        
+    }
+    
+    func base() {
         let yellow = YellowView()
         let green = GreenView()
         let red = RedView()
@@ -48,6 +54,21 @@ class BaseViewController: UIViewController {
             .active()
         
         red.yang.height.equal(to: green).multiplier(by: 2).active()
+    }
+    
+    func baseBugs() {
+     
+        let yellow = YellowView()
+        let green = GreenView()
+        
+        yellow.yang.addToParent(view)
+        green.yang.addToParent(view)
+        
+        yellow.yang.size.equal(to: 50).active()
+        yellow.yang.center.equalToParent().active()
+        
+        green.yang.size.equal(to: yellow).active()
+        green.yang.center.equal(to: yellow).offsetPoint(CGPoint(x: 0, y: 20)).active()
         
     }
     
